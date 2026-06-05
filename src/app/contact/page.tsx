@@ -35,7 +35,7 @@ export default function ContactPage() {
       <Navbar />
 
       <main className="flex-grow py-8 px-4 max-w-5xl mx-auto w-full relative">
-        <div className="absolute top-10 left-1/2 -translate-x-1/2 w-72 h-72 bg-violet-650/5 rounded-full blur-[100px] pointer-events-none"></div>
+
 
         <div className="grid grid-cols-1 md:grid-cols-5 gap-12 items-start mt-6">
           {/* Info Panel */}

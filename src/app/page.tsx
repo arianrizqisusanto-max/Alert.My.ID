@@ -135,9 +135,7 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="relative pt-4 pb-4 md:pt-6 md:pb-6 overflow-hidden">
-        {/* Glow effect background */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-violet-600/10 rounded-full blur-[120px] pointer-events-none"></div>
-        <div className="absolute top-1/3 left-1/3 w-[300px] h-[300px] bg-pink-500/5 rounded-full blur-[100px] pointer-events-none"></div>
+
 
         <div className="max-w-5xl mx-auto px-4 text-center relative z-10">
           <div className="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-violet-950/40 border border-violet-800/40 text-violet-400 text-xs font-semibold mb-3 animate-pulse-slow">
@@ -332,8 +330,7 @@ export default function Home() {
       <section className="py-8 relative bg-slate-950/30 border-t border-slate-900/40">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <div className="glass-card rounded-3xl p-8 sm:p-12 border border-violet-500/20 relative overflow-hidden">
-            <div className="absolute -top-24 -left-24 w-48 h-48 bg-violet-600/10 rounded-full blur-3xl pointer-events-none"></div>
-            <div className="absolute -bottom-24 -right-24 w-48 h-48 bg-pink-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
             
             <h2 className="text-3xl font-bold text-white sm:text-4xl tracking-tight">
               Stay Alert. Stay Ahead.
