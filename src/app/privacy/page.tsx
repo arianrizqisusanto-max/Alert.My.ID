@@ -8,7 +8,7 @@ export default function PrivacyPage() {
     <div className="min-h-screen flex flex-col">
       <Navbar />
 
-      <main className="flex-grow py-16 px-4 max-w-3xl mx-auto w-full">
+      <main className="flex-grow py-8 px-4 max-w-3xl mx-auto w-full">
         <div className="space-y-6">
           {/* Header */}
           <div className="flex items-center space-x-3 pb-6 border-b border-slate-900">

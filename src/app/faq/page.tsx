@@ -47,11 +47,11 @@ export default function FAQPage() {
     <div className="min-h-screen flex flex-col">
       <Navbar />
 
-      <main className="flex-grow py-16 px-4 max-w-3xl mx-auto w-full relative">
+      <main className="flex-grow py-8 px-4 max-w-3xl mx-auto w-full relative">
         <div className="absolute top-10 left-1/2 -translate-x-1/2 w-72 h-72 bg-violet-650/5 rounded-full blur-[100px] pointer-events-none"></div>
 
         {/* Heading */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-8">
           <div className="inline-flex items-center space-x-1 px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-slate-400 text-xs font-semibold mb-3">
             <HelpCircle className="h-3.5 w-3.5 text-violet-400" />
             <span>Help Center</span>
@@ -88,7 +88,7 @@ export default function FAQPage() {
         </div>
 
         {/* Support section */}
-        <div className="text-center mt-16 p-8 glass-card rounded-3xl max-w-xl mx-auto space-y-4">
+        <div className="text-center mt-10 p-8 glass-card rounded-3xl max-w-xl mx-auto space-y-4">
           <h2 className="text-lg font-bold text-white">Still have questions?</h2>
           <p className="text-slate-400 text-xs leading-relaxed">
             Can&apos;t find what you are looking for? Send us a message and our support team will get back to you within 24 hours.

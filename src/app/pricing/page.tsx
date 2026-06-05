@@ -88,11 +88,11 @@ export default function PricingPage() {
     <div className="min-h-screen flex flex-col">
       <Navbar />
 
-      <main className="flex-grow py-16 px-4 max-w-6xl mx-auto w-full relative">
+      <main className="flex-grow py-8 px-4 max-w-6xl mx-auto w-full relative">
         <div className="absolute top-10 left-1/2 -translate-x-1/2 w-72 h-72 bg-violet-650/5 rounded-full blur-[100px] pointer-events-none"></div>
 
         {/* Heading */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-8">
           <h1 className="text-4xl font-extrabold text-white tracking-tight sm:text-5xl">
             Simple Plans for Every Need
           </h1>
@@ -102,7 +102,7 @@ export default function PricingPage() {
         </div>
 
         {/* Plan Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch max-w-5xl mx-auto mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch max-w-5xl mx-auto mb-10">
           {plans.map((plan) => (
             <div
               key={plan.id}

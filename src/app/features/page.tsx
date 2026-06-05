@@ -67,11 +67,11 @@ export default function Features() {
     <div className="min-h-screen flex flex-col">
       <Navbar />
 
-      <main className="flex-grow py-16 px-4 max-w-6xl mx-auto w-full relative">
+      <main className="flex-grow py-8 px-4 max-w-6xl mx-auto w-full relative">
         <div className="absolute top-10 left-1/2 -translate-x-1/2 w-72 h-72 bg-violet-600/5 rounded-full blur-[100px] pointer-events-none"></div>
 
         {/* Heading */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-8">
           <h1 className="text-4xl font-extrabold text-white tracking-tight sm:text-5xl">
             Powerfully Simple Features
           </h1>
@@ -81,7 +81,7 @@ export default function Features() {
         </div>
 
         {/* Features list */}
-        <div className="space-y-12">
+        <div className="space-y-6">
           {detailedFeatures.map((item, idx) => (
             <div 
               key={idx} 
@@ -112,7 +112,7 @@ export default function Features() {
         </div>
 
         {/* Extra: Timezone aware section */}
-        <div className="glass-card rounded-3xl p-8 md:p-12 text-center mt-16 border-dashed border-violet-950/40 relative overflow-hidden">
+        <div className="glass-card rounded-3xl p-8 md:p-12 text-center mt-10 border-dashed border-violet-950/40 relative overflow-hidden">
           <div className="max-w-2xl mx-auto relative z-10 space-y-4">
             <div className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-indigo-950/30 border border-indigo-900/40 text-indigo-400 text-xs font-semibold">
               <Zap className="h-3.5 w-3.5" />
@@ -126,7 +126,7 @@ export default function Features() {
         </div>
 
         {/* CTA */}
-        <div className="mt-16 text-center">
+        <div className="mt-10 text-center">
           <button
             onClick={handleCta}
             className="px-8 py-4 rounded-xl text-sm font-semibold bg-gradient-to-r from-violet-600 to-indigo-600 text-white hover:from-violet-500 hover:to-indigo-550 transition-all duration-200 shadow-xl cursor-pointer"
