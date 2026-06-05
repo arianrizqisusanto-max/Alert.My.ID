@@ -4,7 +4,6 @@ import { sendEmail } from '@/lib/notifications/email'
 import { sendTelegramMessage } from '@/lib/notifications/telegram'
 import { sendWhatsAppReminder } from '@/lib/notifications/whatsapp'
 
-export const runtime = 'edge'
 
 export async function POST(request: Request) {
   // 1. Authenticate the cron request
