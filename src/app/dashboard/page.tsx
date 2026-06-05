@@ -259,12 +259,12 @@ export default function Dashboard() {
 
         {/* Reminders List Grid */}
         {loading ? (
-          <div className="text-center py-20 glass-card rounded-3xl">
+          <div className="text-center py-10 glass-card rounded-3xl">
             <Loader2 className="h-8 w-8 text-violet-500 animate-spin mx-auto mb-2" />
             <p className="text-xs text-slate-500">Retrieving alert listings...</p>
           </div>
         ) : filteredReminders.length === 0 ? (
-          <div className="text-center py-16 glass-card rounded-3xl border-dashed border-slate-850">
+          <div className="text-center py-10 glass-card rounded-3xl border-dashed border-slate-850">
             <BellOff className="h-10 w-10 text-slate-600 mx-auto mb-4" />
             <h3 className="text-base font-bold text-slate-300">No Reminders Found</h3>
             <p className="text-slate-500 text-xs mt-1.5 max-w-sm mx-auto leading-relaxed">

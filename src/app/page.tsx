@@ -134,7 +134,7 @@ export default function Home() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative pt-20 pb-20 md:pt-32 md:pb-28 overflow-hidden">
+      <section className="relative pt-12 pb-12 md:pt-20 md:pb-16 overflow-hidden">
         {/* Glow effect background */}
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-violet-600/10 rounded-full blur-[120px] pointer-events-none"></div>
         <div className="absolute top-1/3 left-1/3 w-[300px] h-[300px] bg-pink-500/5 rounded-full blur-[100px] pointer-events-none"></div>
@@ -148,12 +148,12 @@ export default function Home() {
           <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-tight">
             Never Miss <span className="text-gradient-primary">What Matters</span>.
           </h1>
-          <p className="mt-6 text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
+          <p className="mt-4 text-base sm:text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
             Get reminders via Email, Telegram, and WhatsApp exactly when you need them.
             Simple, timezone-aware, and 100% reliable.
           </p>
 
-          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
               onClick={handleCta}
               className="w-full sm:w-auto px-8 py-4 rounded-2xl text-base font-semibold bg-gradient-to-r from-violet-600 to-indigo-600 text-white hover:from-violet-500 hover:to-indigo-500 shadow-xl shadow-indigo-650/20 hover:shadow-indigo-650/30 flex items-center justify-center space-x-2 transition-all duration-200 cursor-pointer"
@@ -170,7 +170,7 @@ export default function Home() {
           </div>
 
           {/* Social Proof Badges */}
-          <div className="mt-16 pt-8 border-t border-slate-900/60 flex flex-wrap items-center justify-center gap-8 text-xs text-slate-500 font-semibold tracking-wider uppercase">
+          <div className="mt-10 pt-6 border-t border-slate-900/60 flex flex-wrap items-center justify-center gap-8 text-xs text-slate-500 font-semibold tracking-wider uppercase">
             <span>🚀 Freelancers</span>
             <span>💼 Entrepreneurs</span>
             <span>🎓 Students</span>
@@ -180,9 +180,9 @@ export default function Home() {
       </section>
 
       {/* How It Works Section */}
-      <section className="py-20 border-t border-slate-900/50 bg-slate-950/20 relative">
+      <section className="py-12 border-t border-slate-900/50 bg-slate-950/20 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16">
+          <div className="text-center max-w-2xl mx-auto mb-10">
             <h2 className="text-3xl font-bold text-white tracking-tight sm:text-4xl">
               How It Works
             </h2>
@@ -206,9 +206,9 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 relative">
+      <section className="py-12 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16">
+          <div className="text-center max-w-2xl mx-auto mb-10">
             <h2 className="text-3xl font-bold text-white tracking-tight sm:text-4xl">
               Engineered for Simplicity & Speed
             </h2>
@@ -232,9 +232,9 @@ export default function Home() {
       </section>
 
       {/* Pricing Section */}
-      <section className="py-20 border-t border-slate-900/50 bg-slate-950/30">
+      <section className="py-12 border-t border-slate-900/50 bg-slate-950/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16">
+          <div className="text-center max-w-2xl mx-auto mb-10">
             <h2 className="text-3xl font-bold text-white tracking-tight sm:text-4xl">
               Simple, Transparent Pricing
             </h2>
@@ -293,9 +293,9 @@ export default function Home() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 border-t border-slate-900/50">
+      <section className="py-12 border-t border-slate-900/50">
         <div className="max-w-3xl mx-auto px-4">
-          <div className="text-center mb-16">
+          <div className="text-center mb-10">
             <h2 className="text-3xl font-bold text-white tracking-tight sm:text-4xl">
               Frequently Asked Questions
             </h2>
@@ -329,7 +329,7 @@ export default function Home() {
       </section>
 
       {/* Call to Action Section */}
-      <section className="py-20 relative bg-slate-950/30 border-t border-slate-900/40">
+      <section className="py-12 relative bg-slate-950/30 border-t border-slate-900/40">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <div className="glass-card rounded-3xl p-8 sm:p-12 border border-violet-500/20 relative overflow-hidden">
             <div className="absolute -top-24 -left-24 w-48 h-48 bg-violet-600/10 rounded-full blur-3xl pointer-events-none"></div>
