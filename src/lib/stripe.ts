@@ -3,7 +3,7 @@ import Stripe from 'stripe'
 const stripeSecret = process.env.STRIPE_SECRET_KEY || 'sk_test_mock'
 
 export const stripe = new Stripe(stripeSecret, {
-  apiVersion: '2025-05-27.dahlia',
+  apiVersion: '2026-05-27.dahlia',
 })
 
 export const isMockStripe = process.env.NEXT_PUBLIC_MOCK_MODE === 'true'
