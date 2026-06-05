@@ -134,13 +134,13 @@ export default function Home() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative pt-12 pb-12 md:pt-20 md:pb-16 overflow-hidden">
+      <section className="relative pt-6 pb-6 md:pt-10 md:pb-8 overflow-hidden">
         {/* Glow effect background */}
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-violet-600/10 rounded-full blur-[120px] pointer-events-none"></div>
         <div className="absolute top-1/3 left-1/3 w-[300px] h-[300px] bg-pink-500/5 rounded-full blur-[100px] pointer-events-none"></div>
 
         <div className="max-w-5xl mx-auto px-4 text-center relative z-10">
-          <div className="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-violet-950/40 border border-violet-800/40 text-violet-400 text-xs font-semibold mb-6 animate-pulse-slow">
+          <div className="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-violet-950/40 border border-violet-800/40 text-violet-400 text-xs font-semibold mb-3 animate-pulse-slow">
             <Sparkles className="h-3.5 w-3.5" />
             <span>Introducing 30-Day Unlimited Free Trial</span>
           </div>
@@ -148,12 +148,12 @@ export default function Home() {
           <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-tight">
             Never Miss <span className="text-gradient-primary">What Matters</span>.
           </h1>
-          <p className="mt-4 text-base sm:text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
+          <p className="mt-2.5 text-base sm:text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
             Get reminders via Email, Telegram, and WhatsApp exactly when you need them.
             Simple, timezone-aware, and 100% reliable.
           </p>
 
-          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="mt-5 flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
               onClick={handleCta}
               className="w-full sm:w-auto px-8 py-4 rounded-2xl text-base font-semibold bg-gradient-to-r from-violet-600 to-indigo-600 text-white hover:from-violet-500 hover:to-indigo-500 shadow-xl shadow-indigo-650/20 hover:shadow-indigo-650/30 flex items-center justify-center space-x-2 transition-all duration-200 cursor-pointer"
@@ -170,7 +170,7 @@ export default function Home() {
           </div>
 
           {/* Social Proof Badges */}
-          <div className="mt-10 pt-6 border-t border-slate-900/60 flex flex-wrap items-center justify-center gap-8 text-xs text-slate-500 font-semibold tracking-wider uppercase">
+          <div className="mt-6 pt-4 border-t border-slate-900/60 flex flex-wrap items-center justify-center gap-8 text-xs text-slate-500 font-semibold tracking-wider uppercase">
             <span>🚀 Freelancers</span>
             <span>💼 Entrepreneurs</span>
             <span>🎓 Students</span>
