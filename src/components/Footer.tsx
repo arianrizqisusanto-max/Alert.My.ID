@@ -20,7 +20,7 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-slate-400 text-sm max-w-xs leading-relaxed">
-              Stay Alert. Stay Ahead. The simplest, most reliable reminder platform sending alerts to your Email, Telegram, and WhatsApp.
+              Stay Alert. Stay Ahead. The simplest, most reliable reminder platform. Get alerts via Telegram now — WhatsApp coming soon.
             </p>
           </div>
 

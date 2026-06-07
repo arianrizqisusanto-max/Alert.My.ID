@@ -29,32 +29,32 @@ export default function BillingPage() {
 
   const plans = [
     {
-      id: 'basic',
-      name: 'Basic Plan',
-      price: '$12',
+      id: 'telegram_pro',
+      name: 'Telegram Pro',
+      price: '$5',
       period: 'year',
       features: [
-        'Email Notifications',
         'Telegram Notifications',
         'Unlimited Reminders',
+        'Recurring Reminders',
         'Reminder History Logs',
         'Priority Support',
       ],
-      description: 'Ideal for individuals, freelancers, and students.'
+      description: 'The most affordable way to never miss a reminder — all year long.'
     },
     {
       id: 'whatsapp_pro',
       name: 'WhatsApp Pro',
-      price: '$36',
+      price: '$15',
       period: 'year',
       features: [
-        'Everything in Basic',
+        'Everything in Telegram Pro',
         'WhatsApp Notifications',
-        'Multiple Reminder Alerts',
         'Priority Delivery Queue',
         'Priority Support 24/7',
       ],
-      description: 'Ultimate reliability and push alerts for entrepreneurs.'
+      description: 'Reminders direct to WhatsApp. Coming soon — join the waitlist.',
+      comingSoon: true
     }
   ]
 

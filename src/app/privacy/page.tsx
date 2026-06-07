@@ -52,7 +52,8 @@ export default function PrivacyPage() {
               We do not sell your personal data. We share details only with critical service providers required to deliver the alerts:
             </p>
             <ul className="list-disc list-inside space-y-2 pl-4 text-slate-400">
-              <li><strong>Resend:</strong> For email notification delivery.</li>
+              <li><strong>Telegram:</strong> For Telegram bot notification delivery.</li>
+              <li><strong>WhatsApp (Meta):</strong> For WhatsApp notification delivery (coming soon).</li>
               <li><strong>Telegram API:</strong> To send direct messages via our bot.</li>
               <li><strong>Meta (WhatsApp Cloud API):</strong> To deliver template alerts to WhatsApp numbers.</li>
               <li><strong>Stripe:</strong> For secure credit card processing and billing management.</li>

@@ -11,7 +11,7 @@ export default function FAQPage() {
   const items = [
     {
       q: 'Can I use Alert.my.id for free?',
-      a: 'Absolutely! Upon registering with Google Login, you receive a 30-day Free Trial instantly. This gives you unlimited reminders on all notification channels (Email, Telegram, and WhatsApp) so you can test the reliability and delivery speeds.'
+      a: 'Absolutely! Upon registering with Google Login, you receive a 30-day Free Trial instantly. This gives you unlimited reminders on Telegram so you can test the reliability and delivery speeds. WhatsApp support is coming soon.'
     },
     {
       q: 'How do WhatsApp reminders work?',
@@ -39,7 +39,7 @@ export default function FAQPage() {
     },
     {
       q: 'Can I send reminders to multiple channels at once?',
-      a: 'Yes! You can check multiple boxes (e.g., both Email and Telegram) for a single reminder. Our delivery engine will queue and fire alerts to all selected channels simultaneously at the designated time.'
+      a: 'Yes! Once WhatsApp Pro launches, you will be able to check both Telegram and WhatsApp for a single reminder. Our delivery engine will queue and fire alerts to all selected channels simultaneously at the designated time.'
     }
   ]
 

@@ -49,7 +49,7 @@ export default function TermsPage() {
 
             <h2 className="text-lg font-semibold text-white pt-4">3. Delivery & Disclaimer of Reliability</h2>
             <p>
-              While we strive to maintain a 99.9% uptime and deliver messages instantly, notifications rely on third-party API gateways (Meta for WhatsApp, Telegram Bot API, and Resend for Email):
+              While we strive to maintain a 99.9% uptime and deliver messages instantly, notifications rely on third-party API gateways (Meta for WhatsApp and Telegram Bot API):
             </p>
             <p className="text-slate-450 italic">
               &quot;We provide the service on an &apos;as is&apos; and &apos;as available&apos; basis. We cannot guarantee that notifications will always be delivered on time or without interruption due to factors outside our direct control.&quot;

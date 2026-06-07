@@ -16,12 +16,12 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Alert.my.id — Never Miss What Matters",
-  description: "Stay Alert. Stay Ahead. Receive simple, reliable event reminders via Email, Telegram, and WhatsApp exactly when you need them.",
-  keywords: ["reminders", "email alerts", "telegram reminders", "whatsapp alerts", "recurring reminder", "saas", "scheduler"],
+  description: "Stay Alert. Stay Ahead. Get automated reminders via Telegram — and WhatsApp coming soon. Simple, timezone-aware, and 100% reliable.",
+  keywords: ["reminders", "telegram reminders", "whatsapp alerts", "recurring reminder", "saas", "scheduler", "notification bot"],
   authors: [{ name: "Alert.my.id Team" }],
   openGraph: {
     title: "Alert.my.id — Never Miss What Matters",
-    description: "Stay Alert. Stay Ahead. Receive simple, reliable event reminders via Email, Telegram, and WhatsApp.",
+    description: "Automated reminders via Telegram ($5/yr) and WhatsApp coming soon ($15/yr). No missed deadlines, no stress.",
     type: "website",
   }
 };

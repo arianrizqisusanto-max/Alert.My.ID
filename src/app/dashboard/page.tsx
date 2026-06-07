@@ -101,7 +101,6 @@ export default function Dashboard() {
 
   const getChannelIcon = (ch: string) => {
     switch (ch) {
-      case 'email': return <Mail className="h-3.5 w-3.5 text-blue-400" />
       case 'telegram': return <Send className="h-3.5 w-3.5 text-sky-400" />
       case 'whatsapp': return <MessageSquare className="h-3.5 w-3.5 text-emerald-400" />
       default: return <Bell className="h-3.5 w-3.5 text-slate-400" />

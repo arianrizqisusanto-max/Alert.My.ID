@@ -6,7 +6,7 @@ import { useAuth } from '@/lib/auth-context'
 import { supabaseService } from '@/lib/supabase/service'
 import { timezones, getBrowserTimezone } from '@/lib/timezones'
 import { 
-  Bell, Mail, Send, MessageSquare, ArrowLeft, 
+  Bell, Send, MessageSquare, ArrowLeft, 
   AlertTriangle, Calendar, Clock, Globe, HelpCircle, Loader2
 } from 'lucide-react'
 import Link from 'next/link'
@@ -21,7 +21,7 @@ export default function CreateReminder() {
   const [date, setDate] = useState('')
   const [time, setTime] = useState('')
   const [timezone, setTimezone] = useState('UTC')
-  const [channels, setChannels] = useState<string[]>(['email'])
+  const [channels, setChannels] = useState<string[]>(['telegram'])
   const [recurringType, setRecurringType] = useState<'one_time' | 'daily' | 'weekly' | 'monthly' | 'yearly'>('one_time')
   
   const [saving, setSaving] = useState(false)
@@ -234,25 +234,7 @@ export default function CreateReminder() {
                   Notification Channels (Select at least one)
                 </label>
                 
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                  {/* Email Channel */}
-                  <button
-                    type="button"
-                    onClick={() => handleChannelToggle('email')}
-                    className={`flex items-center justify-between p-4 rounded-xl border text-xs font-semibold transition-all duration-150 cursor-pointer ${
-                      channels.includes('email')
-                        ? 'bg-blue-950/20 border-blue-500/50 text-blue-300'
-                        : 'bg-slate-950 border-slate-900 text-slate-400 hover:border-slate-800'
-                    }`}
-                  >
-                    <div className="flex items-center space-x-2.5">
-                      <Mail className="h-4 w-4" />
-                      <span>Email Alert</span>
-                    </div>
-                    <span className="text-[10px] opacity-75">Free</span>
-                  </button>
 
-                  {/* Telegram Channel */}
                   <button
                     type="button"
                     onClick={() => handleChannelToggle('telegram')}

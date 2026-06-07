@@ -5,8 +5,8 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import { useAuth } from '@/lib/auth-context'
 import { 
-  Clock, Mail, Send, MessageSquare, 
-  ChevronRight, Zap, CheckCircle2 
+  Clock, Send, MessageSquare, 
+  ChevronRight, Zap, CheckCircle2, Globe, Shield
 } from 'lucide-react'
 
 export default function Features() {
@@ -16,7 +16,7 @@ export default function Features() {
     {
       icon: <Clock className="h-8 w-8 text-violet-400" />,
       title: 'Flexible Reminder Scheduling',
-      description: 'Whether it is a one-time meeting tomorrow or a weekly report summary, configure it easily.',
+      description: 'Whether it is a one-time meeting tomorrow or a weekly report summary, configure it easily from your dashboard.',
       points: [
         'One-time alerts: Perfect for individual tasks and deadlines.',
         'Daily recurrences: Great for morning routines or end-of-day updates.',
@@ -24,33 +24,43 @@ export default function Features() {
       ]
     },
     {
-      icon: <Mail className="h-8 w-8 text-blue-400" />,
-      title: 'Email Delivery via Resend',
-      description: 'Reliable, lightning-fast emails delivered directly to your inbox. Optimized to bypass spam folders.',
-      points: [
-        'Zero setup required. Ready to send on your first login.',
-        'Rich HTML styling making reminders readable and scannable.',
-        'Includes quick links to dismiss, delay, or edit the reminder.'
-      ]
-    },
-    {
       icon: <Send className="h-8 w-8 text-sky-400" />,
       title: 'Instant Telegram DM Alerts',
-      description: 'Connect our official Telegram Bot in under 15 seconds to receive immediate alerts on your desktop or mobile.',
+      description: 'Connect our official Telegram Bot in under a minute to receive immediate alerts on your desktop or mobile.',
       points: [
         'Secure linkage via custom Telegram deep-linking token.',
         'Zero noise. The bot only sends the alerts you schedule.',
-        'Parse formatting supported for clean reminder payloads.'
+        'Parse formatting supported for clean, readable reminder payloads.'
       ]
     },
     {
       icon: <MessageSquare className="h-8 w-8 text-emerald-400" />,
-      title: 'WhatsApp Pro Notifications',
+      title: 'WhatsApp Pro Notifications (Coming Soon)',
       description: 'Get push alerts on the world\'s most popular messaging app. High visibility guarantees you never miss an event.',
       points: [
         'Delivered via Meta\'s official WhatsApp Cloud API.',
         'Clean template formats highlighting Time, Date, and message contents.',
         'Priority queue guarantees delivery even during peak network traffic.'
+      ]
+    },
+    {
+      icon: <Globe className="h-8 w-8 text-indigo-400" />,
+      title: 'Timezone-Aware Delivery',
+      description: 'Schedule reminders in any timezone. Our engine auto-converts to UTC and fires them exactly at your local time.',
+      points: [
+        'Auto-detects your browser timezone on the dashboard.',
+        'Going on a trip? Switch timezone per reminder, not per account.',
+        'Supports all IANA timezones including Asia, Americas, Europe, and more.'
+      ]
+    },
+    {
+      icon: <Shield className="h-8 w-8 text-yellow-400" />,
+      title: 'Reminder History & Delivery Logs',
+      description: 'Every reminder has a detailed delivery log so you always know if your alert was sent, pending, or failed.',
+      points: [
+        'Per-reminder status: Sent, Pending, or Failed with error details.',
+        'Full history log accessible from the dashboard at any time.',
+        'Retry information included for transient delivery failures.'
       ]
     }
   ]
@@ -69,14 +79,13 @@ export default function Features() {
 
       <main className="flex-grow py-8 px-4 max-w-6xl mx-auto w-full relative">
 
-
         {/* Heading */}
         <div className="text-center max-w-3xl mx-auto mb-8">
           <h1 className="text-4xl font-extrabold text-white tracking-tight sm:text-5xl">
             Powerfully Simple Features
           </h1>
           <p className="mt-4 text-slate-400 text-lg leading-relaxed">
-            Alert.my.id strips away the complexity of traditional calendar apps and planners. We deliver on a single promise: reminding you on the platforms you use most.
+            Alert.my.id strips away complexity. We deliver on a single promise: remind you on the platforms you use most — Telegram now, WhatsApp coming soon.
           </p>
         </div>
 
@@ -109,20 +118,6 @@ export default function Features() {
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Extra: Timezone aware section */}
-        <div className="glass-card rounded-3xl p-8 md:p-12 text-center mt-10 border-dashed border-violet-950/40 relative overflow-hidden">
-          <div className="max-w-2xl mx-auto relative z-10 space-y-4">
-            <div className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-indigo-950/30 border border-indigo-900/40 text-indigo-400 text-xs font-semibold">
-              <Zap className="h-3.5 w-3.5" />
-              <span>Timezone-Aware Delivery</span>
-            </div>
-            <h2 className="text-2xl font-bold text-white">Detects and adjusts automatically</h2>
-            <p className="text-slate-400 text-sm leading-relaxed">
-              When creating reminders, we auto-detect your browser timezone. Going on a business trip? Schedule using your target destination&apos;s timezone. Our scheduler calculates UTC conversions instantly so reminders alert you exactly when they are due.
-            </p>
-          </div>
         </div>
 
         {/* CTA */}
