@@ -47,7 +47,7 @@ export default function Home() {
       <Navbar />
 
       {/* ─── HERO ─── */}
-      <section className="relative pt-20 pb-16 overflow-hidden">
+      <section className="relative pt-8 pb-8 overflow-hidden">
         {/* Background ambient glow */}
         <div className="pointer-events-none absolute inset-0 overflow-hidden">
           <div
@@ -58,7 +58,7 @@ export default function Home() {
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-violet-950/50 border border-violet-700/40 text-violet-300 text-xs font-bold uppercase tracking-widest mb-8 animate-slide-up">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-violet-950/50 border border-violet-700/40 text-violet-300 text-xs font-bold uppercase tracking-widest mb-4 animate-slide-up">
             <Sparkles className="h-3.5 w-3.5" />
             <span>30-Day Free Trial — No Credit Card Required</span>
           </div>
@@ -73,17 +73,17 @@ export default function Home() {
           </h1>
 
           {/* Subheadline */}
-          <p className="mt-6 text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed animate-slide-up" style={{ animationDelay: '0.2s' }}>
+          <p className="mt-3 text-base sm:text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed animate-slide-up" style={{ animationDelay: '0.2s' }}>
             Send automated reminders directly to your Telegram — on time, every time.
             No apps to open. No missed deadlines. No stress.
           </p>
 
           {/* CTA Buttons */}
-          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 animate-slide-up" style={{ animationDelay: '0.3s' }}>
+          <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-4 animate-slide-up" style={{ animationDelay: '0.3s' }}>
             <button
               onClick={handleCta}
               id="hero-cta-btn"
-              className="group relative w-full sm:w-auto px-8 py-4 rounded-2xl text-base font-bold bg-gradient-to-r from-violet-600 to-purple-600 text-white hover:from-violet-500 hover:to-purple-500 glow-violet transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer"
+              className="group relative w-full sm:w-auto px-8 py-3 rounded-xl text-sm font-bold bg-gradient-to-r from-violet-600 to-purple-600 text-white hover:from-violet-500 hover:to-purple-500 glow-violet transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer"
             >
               <Zap className="h-4 w-4 group-hover:rotate-12 transition-transform duration-200" />
               <span>Start 30-Day Free Trial</span>
@@ -91,7 +91,7 @@ export default function Home() {
             </button>
             <a
               href="#pricing"
-              className="w-full sm:w-auto px-8 py-4 rounded-2xl text-base font-semibold text-slate-400 hover:text-white border border-slate-800 hover:border-slate-600 transition-all duration-200 text-center"
+              className="w-full sm:w-auto px-8 py-3 rounded-xl text-sm font-semibold text-slate-400 hover:text-white border border-slate-800 hover:border-slate-600 transition-all duration-200 text-center"
             >
               View Pricing
             </a>
