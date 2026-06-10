@@ -234,7 +234,7 @@ export default function CreateReminder() {
                   Notification Channels (Select at least one)
                 </label>
                 
-
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <button
                     type="button"
                     onClick={() => handleChannelToggle('telegram')}
