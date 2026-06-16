@@ -124,7 +124,7 @@ export default function Dashboard() {
     : 100
 
   return (
-    <div className="space-y-8 relative">
+    <div className="space-y-4 relative">
       
       {/* Dynamic Toast Notifications (Alert popup when background cron triggers) */}
       <div className="fixed top-6 right-6 z-50 flex flex-col gap-3 w-full max-w-sm">
@@ -184,42 +184,42 @@ export default function Dashboard() {
       </div>
 
       {/* Analytics widgets */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
-        <div className="glass-card rounded-2xl p-5 flex items-center space-x-4 border border-slate-900/60">
-          <div className="p-3 bg-violet-950/20 border border-violet-900/20 rounded-xl text-violet-450">
-            <Clock className="h-5 w-5" />
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
+        <div className="glass-card rounded-2xl p-3.5 flex items-center space-x-3 border border-slate-900/60">
+          <div className="p-2 bg-violet-950/20 border border-violet-900/20 rounded-lg text-violet-450">
+            <Clock className="h-4 w-4" />
           </div>
           <div>
-            <div className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Active Reminders</div>
-            <div className="text-xl font-bold text-white mt-0.5">{activeCount}</div>
+            <div className="text-[9px] font-bold text-slate-500 uppercase tracking-wider">Active Reminders</div>
+            <div className="text-lg font-bold text-white mt-0.5">{activeCount}</div>
           </div>
         </div>
 
-        <div className="glass-card rounded-2xl p-5 flex items-center space-x-4 border border-slate-900/60">
-          <div className="p-3 bg-emerald-950/20 border border-emerald-900/20 rounded-xl text-emerald-450">
-            <CheckCircle2 className="h-5 w-5" />
+        <div className="glass-card rounded-2xl p-3.5 flex items-center space-x-3 border border-slate-900/60">
+          <div className="p-2 bg-emerald-950/20 border border-emerald-900/20 rounded-lg text-emerald-450">
+            <CheckCircle2 className="h-4 w-4" />
           </div>
           <div>
-            <div className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Completed Alerts</div>
-            <div className="text-xl font-bold text-white mt-0.5">{completedCount}</div>
+            <div className="text-[9px] font-bold text-slate-500 uppercase tracking-wider">Completed Alerts</div>
+            <div className="text-lg font-bold text-white mt-0.5">{completedCount}</div>
           </div>
         </div>
 
-        <div className="glass-card rounded-2xl p-5 flex items-center space-x-4 border border-slate-900/60">
-          <div className="p-3 bg-blue-950/20 border border-blue-900/20 rounded-xl text-blue-450">
-            <RefreshCcw className="h-5 w-5" />
+        <div className="glass-card rounded-2xl p-3.5 flex items-center space-x-3 border border-slate-900/60">
+          <div className="p-2 bg-blue-950/20 border border-blue-900/20 rounded-lg text-blue-450">
+            <RefreshCcw className="h-4 w-4" />
           </div>
           <div>
-            <div className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Delivery Rate</div>
-            <div className="text-xl font-bold text-white mt-0.5">{successRate}%</div>
+            <div className="text-[9px] font-bold text-slate-500 uppercase tracking-wider">Delivery Rate</div>
+            <div className="text-lg font-bold text-white mt-0.5">{successRate}%</div>
           </div>
         </div>
       </div>
 
       {/* Reminders section header + search filters */}
-      <div className="space-y-4">
+      <div className="space-y-2.5">
         <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
-          <h2 className="text-lg font-bold text-white flex items-center space-x-2">
+          <h2 className="text-base font-bold text-white flex items-center space-x-2">
             <span>Scheduled Reminders</span>
             <span className="text-xs py-0.5 px-2 bg-slate-900 text-slate-400 rounded-full border border-slate-800">
               {filteredReminders.length}
@@ -282,7 +282,7 @@ export default function Dashboard() {
             )}
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
             {filteredReminders.map((rem) => {
               const isActiveStatus = rem.status === 'active'
               const isCompletedStatus = rem.status === 'completed'
@@ -290,7 +290,7 @@ export default function Dashboard() {
               return (
                 <div 
                   key={rem.id} 
-                  className={`glass-card rounded-3xl p-6 flex flex-col justify-between border transition-all duration-200 ${
+                  className={`glass-card rounded-2xl p-4 flex flex-col justify-between border transition-all duration-200 ${
                     isActiveStatus 
                       ? 'border-slate-850 hover:border-slate-800/80' 
                       : isCompletedStatus 
@@ -340,7 +340,7 @@ export default function Dashboard() {
                   </div>
 
                   {/* Card Actions Footer */}
-                  <div className="mt-6 pt-4 border-t border-slate-900/60 flex items-center justify-between">
+                  <div className="mt-3.5 pt-2.5 border-t border-slate-900/60 flex items-center justify-between">
                     {/* Recurrence & Channels indicators */}
                     <div className="flex items-center space-x-3.5">
                       <span className="text-[10px] font-bold text-slate-550 capitalize bg-slate-900 px-2.5 py-0.5 rounded-full border border-slate-850">
@@ -391,9 +391,9 @@ export default function Dashboard() {
       </div>
 
       {/* Reminder History Log Section */}
-      <div className="pt-6 border-t border-slate-900">
-        <h2 className="text-lg font-bold text-white mb-4 flex items-center space-x-2">
-          <History className="h-5 w-5 text-slate-450" />
+      <div className="pt-4 border-t border-slate-900">
+        <h2 className="text-base font-bold text-white mb-2.5 flex items-center space-x-2">
+          <History className="h-4 w-4 text-slate-450" />
           <span>Notification History Logs</span>
         </h2>
 
@@ -407,28 +407,28 @@ export default function Dashboard() {
               <table className="w-full text-left border-collapse">
                 <thead>
                   <tr className="bg-slate-900/40 border-b border-slate-900/60 text-[10px] font-bold text-slate-400 uppercase tracking-wider">
-                    <th className="p-4">Time Sent</th>
-                    <th className="p-4">Reminder Title</th>
-                    <th className="p-4">Channel</th>
-                    <th className="p-4 text-right">Status</th>
+                    <th className="p-2.5">Time Sent</th>
+                    <th className="p-2.5">Reminder Title</th>
+                    <th className="p-2.5">Channel</th>
+                    <th className="p-2.5 text-right">Status</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-900/40 text-xs text-slate-350">
                   {logs.slice(0, 8).map((log) => (
                     <tr key={log.id} className="hover:bg-slate-950/10 transition-colors">
-                      <td className="p-4 text-[10px] text-slate-550 font-medium">
+                      <td className="p-2.5 text-[10px] text-slate-550 font-medium">
                         {new Date(log.sent_at).toLocaleString()}
                       </td>
-                      <td className="p-4 font-semibold text-slate-200 truncate max-w-[150px]">
+                      <td className="p-2.5 font-semibold text-slate-200 truncate max-w-[150px]">
                         {log.reminder_title}
                       </td>
-                      <td className="p-4">
-                        <span className="inline-flex items-center space-x-1 bg-slate-900 px-2 py-1 rounded border border-slate-850">
+                      <td className="p-2.5">
+                        <span className="inline-flex items-center space-x-1 bg-slate-900 px-2 py-0.5 rounded border border-slate-850">
                           {getChannelIcon(log.channel)}
                           <span className="text-[10px] capitalize font-medium text-slate-400">{log.channel}</span>
                         </span>
                       </td>
-                      <td className="p-4 text-right">
+                      <td className="p-2.5 text-right">
                         {log.delivery_status === 'sent' ? (
                           <span className="inline-flex items-center space-x-1 text-emerald-450 text-[10px] font-bold bg-emerald-950/20 border border-emerald-900/30 px-2 py-0.5 rounded-full">
                             <CheckCircle2 className="h-3 w-3 shrink-0" />

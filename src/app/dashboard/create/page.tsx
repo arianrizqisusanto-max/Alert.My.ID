@@ -93,7 +93,7 @@ export default function CreateReminder() {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       {/* Back button */}
       <div>
         <Link
@@ -107,14 +107,14 @@ export default function CreateReminder() {
 
       {/* Header */}
       <div>
-        <h1 className="text-2xl font-extrabold text-white tracking-tight">Create Reminder</h1>
-        <p className="text-xs text-slate-400 mt-1">Set up a new notification alert across your connected channels.</p>
+        <h1 className="text-xl font-bold text-white tracking-tight">Create Reminder</h1>
+        <p className="text-xs text-slate-400 mt-0.5">Set up a new notification alert across your connected channels.</p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 items-start">
         {/* Form panel */}
         <div className="lg:col-span-2">
-          <div className="glass-card rounded-3xl p-6 md:p-8 border border-slate-900">
+          <div className="glass-card rounded-2xl p-4 md:p-5 border border-slate-900">
             {error && (
               <div className="mb-6 p-4 rounded-xl bg-red-950/20 border border-red-900/40 text-red-400 text-xs flex items-center space-x-2">
                 <AlertTriangle className="h-4.5 w-4.5 shrink-0" />

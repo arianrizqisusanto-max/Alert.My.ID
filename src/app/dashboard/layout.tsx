@@ -57,8 +57,8 @@ export default function DashboardLayout({
   return (
     <div className="min-h-screen bg-slate-950 flex flex-col md:flex-row text-slate-100">
       {/* Dashboard Sidebar */}
-      <aside className="w-full md:w-64 shrink-0 border-b md:border-b-0 md:border-r border-slate-900 bg-slate-950/60 backdrop-blur-md flex flex-col justify-between py-6 px-4">
-        <div className="space-y-8">
+      <aside className="w-full md:w-56 shrink-0 border-b md:border-b-0 md:border-r border-slate-900 bg-slate-950/60 backdrop-blur-md flex flex-col justify-between py-4 px-3">
+        <div className="space-y-4">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2 group px-2">
             <div className="p-2 bg-gradient-to-tr from-violet-600 to-pink-500 rounded-xl group-hover:rotate-12 transition-transform duration-300">
@@ -143,7 +143,7 @@ export default function DashboardLayout({
       </aside>
 
       {/* Main Content Area */}
-      <main className="flex-grow p-6 md:p-8 overflow-y-auto max-w-5xl mx-auto w-full">
+      <main className="flex-grow p-4 md:p-5 overflow-y-auto w-full">
         {children}
       </main>
     </div>
