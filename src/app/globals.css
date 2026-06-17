@@ -11,31 +11,26 @@
   --color-primary-700: #6d28d9;
   --color-primary-800: #5b21b6;
   --color-primary-900: #4c1d95;
+  
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
 }
 
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-12px); }
-}
-
-@keyframes shimmer {
-  0% { background-position: -200% center; }
-  100% { background-position: 200% center; }
+  50% { transform: translateY(-8px); }
 }
 
 @keyframes glow-pulse {
-  0%, 100% { opacity: 0.5; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.05); }
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.03); }
 }
 
-@keyframes slide-up {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fade-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
+@keyframes slide-down-notification {
+  0% { transform: translateY(-20px); opacity: 0; }
+  15% { transform: translateY(0); opacity: 1; }
+  85% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-20px); opacity: 0; }
 }
 
 /* Global styles */
@@ -49,116 +44,70 @@
 
 body {
   font-feature-settings: "cv02", "cv03", "cv04", "cv11";
-  background-color: #07080f;
+  background-color: #030408;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* ──────────────────────── Grid & Glow Background ──────────────────────── */
+.bg-grid-pattern {
+  background-size: 24px 24px;
   background-image: 
-    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(124, 58, 237, 0.12) 0%, transparent 60%),
-    radial-gradient(ellipse 40% 30% at 80% 80%, rgba(236, 72, 153, 0.06) 0%, transparent 50%);
-  background-attachment: fixed;
+    linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+}
+
+.ambient-glow {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 350px;
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.08) 0%, transparent 70%);
+  z-index: 0;
 }
 
 /* custom scrollbar */
 ::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: #0b0f19; }
+::-webkit-scrollbar-track { background: #07090e; }
 ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: #334155; }
 
-/* ──────────────────────── Glass Cards ──────────────────────── */
+/* ──────────────────────── Premium Cards ──────────────────────── */
 .glass-card {
-  background: rgba(15, 18, 30, 0.7);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
-}
-
-.glass-card-hover {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.glass-card-hover:hover {
-  background: rgba(20, 24, 40, 0.85);
-  border-color: rgba(139, 92, 246, 0.25);
-  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(139, 92, 246, 0.1);
-  transform: translateY(-3px);
+  background: rgba(10, 12, 22, 0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  box-shadow: 
+    0 4px 30px rgba(0, 0, 0, 0.6),
+    inset 0 1px 1px rgba(255, 255, 255, 0.03);
 }
 
 .glass-navbar {
-  background: rgba(7, 8, 15, 0.85);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-/* ──────────────────────── Gradients ──────────────────────── */
-.text-gradient-primary {
-  background: linear-gradient(135deg, #a78bfa 0%, #ec4899 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.text-gradient-violet {
-  background: linear-gradient(135deg, #c4b5fd 0%, #a78bfa 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.text-gradient-green {
-  background: linear-gradient(135deg, #34d399 0%, #10b981 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  background: rgba(4, 5, 10, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
 }
 
 /* ──────────────────────── Glow Effects ──────────────────────── */
-.glow-violet {
-  box-shadow: 0 0 32px rgba(139, 92, 246, 0.3), 0 0 64px rgba(139, 92, 246, 0.1);
+.glow-border-hover {
+  transition: all 0.3s ease;
 }
-.glow-pink {
-  box-shadow: 0 0 32px rgba(236, 72, 153, 0.25), 0 0 64px rgba(236, 72, 153, 0.08);
-}
-.glow-green {
-  box-shadow: 0 0 32px rgba(52, 211, 153, 0.25), 0 0 64px rgba(52, 211, 153, 0.08);
+.glow-border-hover:hover {
+  border-color: rgba(139, 92, 246, 0.25);
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.05);
 }
 
 /* ──────────────────────── Animations ──────────────────────── */
-.animate-float { animation: float 6s ease-in-out infinite; }
-.animate-glow { animation: glow-pulse 3s ease-in-out infinite; }
-.animate-slide-up { animation: slide-up 0.6s ease-out both; }
-.animate-fade-in { animation: fade-in 0.8s ease-out both; }
-
-.shimmer-text {
-  background: linear-gradient(90deg, #a78bfa, #ec4899, #a78bfa);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: shimmer 3s linear infinite;
-}
-
-/* ──────────────────────── Badge ──────────────────────── */
-.badge-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 14px;
-  border-radius: 999px;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  border: 1px solid;
-}
-
-/* ──────────────────────── Pricing cards ──────────────────────── */
-.pricing-popular {
-  background: linear-gradient(135deg, rgba(109, 40, 217, 0.2) 0%, rgba(124, 58, 237, 0.1) 100%);
-  border-color: rgba(139, 92, 246, 0.4) !important;
-  box-shadow: 0 0 0 1px rgba(139, 92, 246, 0.2), 0 20px 60px rgba(109, 40, 217, 0.25);
-}
+.animate-float { animation: float 5s ease-in-out infinite; }
+.animate-notification { animation: slide-down-notification 5s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
 
 /* Divider gradient */
 .divider-gradient {
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.3), transparent);
+  background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.2), transparent);
 }
