@@ -93,7 +93,7 @@ export function useMockScheduler(userId: string | undefined, onRefresh: () => vo
             for (const channel of rem.notification_channels) {
               await supabaseService.addMockLog({
                 reminder_id: rem.id,
-                channel: channel as 'email' | 'telegram' | 'whatsapp',
+                channel: channel as 'telegram' | 'whatsapp',
                 delivery_status: 'sent',
               })
             }
