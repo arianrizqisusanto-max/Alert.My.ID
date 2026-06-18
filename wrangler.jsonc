@@ -1,7 +1,7 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "alert-my-id",
-  "main": ".open-next/worker.js",
+  "main": "src/worker-deploy.ts",
   "compatibility_date": "2025-12-30",
   "compatibility_flags": ["nodejs_compat"],
   "assets": {
