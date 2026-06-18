@@ -5,8 +5,8 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import { useAuth } from '@/lib/auth-context'
 import { 
-  BellRing, Send, MessageSquare, ArrowRight, Zap, 
-  Loader2, Smartphone, Shield, Clock, Globe, Check
+  Send, MessageSquare, ArrowRight, Zap, 
+  Loader2, Check, Shield, Clock, Globe
 } from 'lucide-react'
 
 export default function Home() {
@@ -14,13 +14,12 @@ export default function Home() {
   const [contactEmail, setContactEmail] = useState('')
   const [contactMessage, setContactMessage] = useState('')
   const [contactStatus, setContactStatus] = useState('')
-
-  // Simulator state
   const [simChannel, setSimChannel] = useState<'telegram' | 'whatsapp'>('telegram')
-  const [simText, setSimText] = useState('Meeting with team in 15 mins 🚀')
+  const [simText, setSimText] = useState('Team meeting in 15 mins 🚀')
   const [isSimulating, setIsSimulating] = useState(false)
   const [messages, setMessages] = useState<Array<{ id: string; text: string; time: string; channel: string }>>([
-    { id: '1', text: 'Welcome to Alert.my.id! Your reminders will appear here.', time: '09:00 AM', channel: 'telegram' }
+    { id: '1', text: 'Your reminder is set! Alert.my.id will notify you on time.', time: '09:00', channel: 'telegram' },
+    { id: '2', text: 'Your reminder is set! Alert.my.id will notify you on time.', time: '09:00', channel: 'whatsapp' },
   ])
 
   const handleCta = () => {
@@ -31,22 +30,11 @@ export default function Home() {
   const triggerSimulation = () => {
     if (isSimulating || !simText.trim()) return
     setIsSimulating(true)
-
-    // Simulate network delay
     setTimeout(() => {
-      const now = new Date()
-      const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
-      setMessages(prev => [
-        ...prev,
-        {
-          id: Date.now().toString(),
-          text: simText,
-          time: timeStr,
-          channel: simChannel
-        }
-      ])
+      const timeStr = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+      setMessages(prev => [...prev, { id: Date.now().toString(), text: simText, time: timeStr, channel: simChannel }])
       setIsSimulating(false)
-    }, 700)
+    }, 600)
   }
 
   const handleContactSubmit = (e: React.FormEvent) => {
@@ -60,282 +48,231 @@ export default function Home() {
     }, 800)
   }
 
+  const isTelegram = simChannel === 'telegram'
+
   return (
-    <div className="min-h-screen flex flex-col bg-[#030408] text-slate-300 bg-grid-pattern relative">
+    <div className="min-h-screen flex flex-col bg-[#040508] text-slate-300 relative overflow-hidden">
       
-      {/* Background Glows */}
-      <div className="absolute top-[-20%] left-[-10%] w-[60%] h-[60%] bg-violet-600/10 blur-[130px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-pink-500/5 blur-[120px] rounded-full pointer-events-none" />
+      {/* Ambient glows */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-violet-600/8 blur-[120px] rounded-full" />
+        <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-indigo-600/6 blur-[100px] rounded-full" />
+      </div>
 
       <Navbar />
 
-      {/* Main Full-Width Split Layout */}
-      <main className="flex-grow flex flex-col md:flex-row w-full border-b border-slate-900/60 z-10">
-        
-        {/* ─── LEFT PANEL: Hero Info & Interactive Phone Mockup (50% Width on Desktop) ─── */}
-        <section className="w-full md:w-1/2 flex flex-col justify-center p-6 sm:p-10 lg:p-16 border-b md:border-b-0 md:border-r border-slate-900 bg-slate-950/45 backdrop-blur-sm">
-          <div className="max-w-xl mx-auto w-full flex flex-col gap-6">
-            
-            {/* Header Brand */}
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <div className="p-1.5 bg-gradient-to-tr from-violet-600 to-indigo-650 rounded-lg text-white shadow-md">
-                  <BellRing className="h-4.5 w-4.5" />
-                </div>
-                <span className="text-base font-bold text-white tracking-tight">Alert.my.id</span>
-              </div>
-              <span className="text-[9px] bg-violet-500/10 text-violet-400 border border-violet-500/20 px-2.5 py-0.5 rounded-full font-bold uppercase tracking-wider">
-                30-Day Free Trial
-              </span>
-            </div>
+      <main className="flex-1 flex flex-col lg:flex-row w-full z-10">
+
+        {/* ── LEFT: Hero + Chat Simulator ── */}
+        <section className="flex-1 flex flex-col justify-center px-8 py-10 lg:px-14 lg:py-12 lg:border-r border-slate-900/70">
+          <div className="max-w-lg w-full mx-auto flex flex-col gap-7">
 
             {/* Headline */}
-            <div className="space-y-2.5">
-              <h1 className="text-3xl sm:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-pink-400 to-indigo-300 tracking-tight leading-tight">
-                Telegram & WhatsApp Reminders.
+            <div className="flex flex-col gap-3">
+              <span className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest text-violet-400 bg-violet-500/10 border border-violet-500/15 px-2.5 py-1 rounded-full w-fit">
+                <span className="h-1.5 w-1.5 rounded-full bg-violet-400 animate-pulse" />
+                30-Day Free Trial
+              </span>
+              <h1 className="text-3xl lg:text-4xl font-extrabold text-white leading-tight tracking-tight">
+                Reminders via{' '}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-violet-400">Telegram</span>
+                {' '}& WhatsApp
               </h1>
-              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
-                The developer-grade reminder app. Set tasks in seconds, get notified instantly in your favorite chat. No apps to open. No missed deadlines.
+              <p className="text-sm text-slate-400 leading-relaxed">
+                Never miss a deadline. Get instant alerts to your chat app — automatic, timezone-aware, and serverless.
               </p>
+              <div className="flex flex-wrap gap-2 mt-1">
+                {[
+                  { icon: <Shield className="h-3 w-3" />, label: 'Secure OAuth' },
+                  { icon: <Clock className="h-3 w-3" />, label: 'Timezone Aware' },
+                  { icon: <Globe className="h-3 w-3" />, label: 'Serverless Edge' },
+                ].map((t, i) => (
+                  <span key={i} className="inline-flex items-center gap-1.5 text-[10px] font-medium px-2.5 py-1 rounded-lg bg-slate-900/80 border border-slate-800 text-slate-400">
+                    {t.icon}{t.label}
+                  </span>
+                ))}
+              </div>
             </div>
 
-            {/* Feature Pills */}
-            <div className="flex flex-wrap gap-2">
-              {[
-                { icon: <Shield className="h-3.5 w-3.5" />, label: 'Secure Edge' },
-                { icon: <Clock className="h-3.5 w-3.5" />, label: 'Zero Latency' },
-                { icon: <Globe className="h-3.5 w-3.5" />, label: 'Timezone Safe' }
-              ].map((tag, idx) => (
-                <span key={idx} className="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-slate-900 border border-slate-850 text-slate-350 text-[10px] font-semibold">
-                  {tag.icon}
-                  <span>{tag.label}</span>
-                </span>
-              ))}
-            </div>
-
-            {/* Phone Mockup Console */}
-            <div className="flex flex-col gap-3 mt-4">
+            {/* Chat Simulator */}
+            <div className="flex flex-col gap-2">
               <div className="flex items-center justify-between">
-                <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Live Preview Console</span>
-                
-                {/* Selector Tabs */}
-                <div className="flex bg-slate-950 p-0.5 rounded-lg border border-slate-900">
-                  <button
-                    onClick={() => setSimChannel('telegram')}
-                    className={`px-3 py-1 text-[9px] font-bold rounded-md transition-colors flex items-center gap-1.5 cursor-pointer ${
-                      simChannel === 'telegram'
-                        ? 'bg-sky-500/15 text-sky-400 border border-sky-500/10'
-                        : 'text-slate-500 hover:text-slate-300'
-                    }`}
-                  >
-                    <Send className="h-2.5 w-2.5" />
-                    <span>Telegram</span>
-                  </button>
-                  <button
-                    onClick={() => setSimChannel('whatsapp')}
-                    className={`px-3 py-1 text-[9px] font-bold rounded-md transition-colors flex items-center gap-1.5 cursor-pointer ${
-                      simChannel === 'whatsapp'
-                        ? 'bg-emerald-500/15 text-emerald-400 border border-emerald-500/10'
-                        : 'text-slate-500 hover:text-slate-300'
-                    }`}
-                  >
-                    <MessageSquare className="h-2.5 w-2.5" />
-                    <span>WhatsApp</span>
-                  </button>
+                <span className="text-[10px] font-semibold text-slate-500 uppercase tracking-widest">Live Preview</span>
+                <div className="flex bg-slate-950 border border-slate-900 rounded-lg p-0.5 gap-0.5">
+                  {(['telegram', 'whatsapp'] as const).map(ch => (
+                    <button
+                      key={ch}
+                      onClick={() => setSimChannel(ch)}
+                      className={`flex items-center gap-1 px-2.5 py-1 rounded-md text-[9px] font-bold transition-all cursor-pointer ${
+                        simChannel === ch
+                          ? ch === 'telegram'
+                            ? 'bg-sky-500/15 text-sky-400 border border-sky-500/15'
+                            : 'bg-emerald-500/15 text-emerald-400 border border-emerald-500/15'
+                          : 'text-slate-500 hover:text-slate-300'
+                      }`}
+                    >
+                      {ch === 'telegram' ? <Send className="h-2 w-2" /> : <MessageSquare className="h-2 w-2" />}
+                      {ch === 'telegram' ? 'Telegram' : 'WhatsApp'}
+                    </button>
+                  ))}
                 </div>
               </div>
 
-              {/* Phone Container */}
-              <div className="w-full bg-[#0a0c16] border border-slate-850 rounded-2xl p-3.5 shadow-2xl relative flex flex-col gap-3">
-                
-                {/* Header of Chat */}
-                <div className={`flex items-center justify-between p-2.5 rounded-xl ${
-                  simChannel === 'telegram' ? 'bg-sky-950/20 border border-sky-900/20' : 'bg-emerald-950/20 border border-emerald-900/20'
-                }`}>
-                  <div className="flex items-center gap-2 min-w-0">
-                    <div className={`h-2.5 w-2.5 rounded-full shrink-0 relative flex items-center justify-center ${
-                      simChannel === 'telegram' ? 'bg-sky-500' : 'bg-emerald-500'
-                    }`}>
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-inherit opacity-75"></span>
-                    </div>
-                    <div className="min-w-0">
-                      <p className="text-[10px] font-bold text-white leading-none">Alert.my.id Bot</p>
-                      <p className="text-[8px] text-slate-500 mt-1 leading-none">online</p>
-                    </div>
-                  </div>
-                  <span className="text-[8px] text-slate-500 font-bold uppercase tracking-wider">
-                    {simChannel === 'telegram' ? 'Telegram' : 'WhatsApp'}
+              <div className={`bg-[#090b14] border rounded-xl p-3 flex flex-col gap-2 ${isTelegram ? 'border-sky-900/25' : 'border-emerald-900/25'}`}>
+                {/* Chat header */}
+                <div className={`flex items-center gap-2 px-2.5 py-1.5 rounded-lg ${isTelegram ? 'bg-sky-950/20' : 'bg-emerald-950/20'}`}>
+                  <span className={`h-2 w-2 rounded-full relative ${isTelegram ? 'bg-sky-400' : 'bg-emerald-400'}`}>
+                    <span className="animate-ping absolute inset-0 rounded-full bg-inherit opacity-60" />
                   </span>
+                  <span className="text-[10px] font-bold text-white">Alert.my.id Bot</span>
+                  <span className="text-[8px] text-slate-500 ml-auto">{isTelegram ? 'Telegram' : 'WhatsApp'}</span>
                 </div>
 
-                {/* Chat Message Area */}
-                <div className="h-32 overflow-y-auto p-2.5 bg-[#05060b] border border-slate-900/80 rounded-xl flex flex-col gap-3 scrollbar-thin">
-                  {messages.filter(m => m.channel === simChannel).map((msg) => (
-                    <div key={msg.id} className="flex flex-col gap-1 items-start max-w-[85%] self-start animate-slide-up">
-                      <div className={`p-2.5 rounded-2xl text-xs text-white leading-relaxed ${
-                        simChannel === 'telegram'
-                          ? 'bg-sky-900/20 border border-sky-900/30 rounded-tl-none'
-                          : 'bg-emerald-900/20 border border-emerald-900/30 rounded-tl-none'
+                {/* Messages */}
+                <div className="h-28 overflow-y-auto flex flex-col gap-2 px-1">
+                  {messages.filter(m => m.channel === simChannel).map(msg => (
+                    <div key={msg.id} className="flex flex-col gap-0.5 max-w-[80%]">
+                      <div className={`px-3 py-2 rounded-xl rounded-tl-sm text-[11px] text-white leading-relaxed ${
+                        isTelegram ? 'bg-sky-900/25 border border-sky-900/30' : 'bg-emerald-900/25 border border-emerald-900/30'
                       }`}>
                         {msg.text}
                       </div>
-                      <span className="text-[8px] text-slate-600 pl-1 font-semibold">{msg.time}</span>
+                      <span className="text-[8px] text-slate-600 pl-1">{msg.time}</span>
                     </div>
                   ))}
                 </div>
 
-                {/* Message Input */}
+                {/* Input */}
                 <div className="flex gap-2">
                   <input
                     type="text"
                     value={simText}
-                    onChange={(e) => setSimText(e.target.value)}
-                    placeholder="Type test reminder..."
-                    className="flex-grow text-xs px-3 py-2 bg-[#05060b] border border-slate-900 rounded-xl text-white placeholder-slate-655 focus:outline-none focus:border-slate-800"
+                    onChange={e => setSimText(e.target.value)}
+                    onKeyDown={e => e.key === 'Enter' && triggerSimulation()}
+                    placeholder="Type a reminder..."
+                    className="flex-1 text-xs px-3 py-1.5 bg-slate-950 border border-slate-800 rounded-lg text-white placeholder-slate-600 focus:outline-none focus:border-slate-700"
                   />
                   <button
                     onClick={triggerSimulation}
                     disabled={isSimulating}
-                    className={`px-4 rounded-xl text-xs font-bold transition-all flex items-center justify-center cursor-pointer text-white ${
-                      simChannel === 'telegram'
-                        ? 'bg-sky-650 hover:bg-sky-600 shadow-lg shadow-sky-950/35'
-                        : 'bg-emerald-650 hover:bg-emerald-600 shadow-lg shadow-emerald-950/35'
+                    className={`px-3.5 py-1.5 rounded-lg text-[10px] font-bold text-white transition-all cursor-pointer ${
+                      isTelegram ? 'bg-sky-600 hover:bg-sky-500' : 'bg-emerald-600 hover:bg-emerald-500'
                     }`}
                   >
-                    {isSimulating ? (
-                      <Loader2 className="h-3.5 w-3.5 animate-spin" />
-                    ) : (
-                      <span>Send</span>
-                    )}
+                    {isSimulating ? <Loader2 className="h-3 w-3 animate-spin" /> : 'Send'}
                   </button>
                 </div>
-
               </div>
             </div>
 
           </div>
         </section>
 
-        {/* ─── RIGHT PANEL: Pricing, Steps, Contact & Auth (50% Width on Desktop) ─── */}
-        <section className="w-full md:w-1/2 flex flex-col justify-center p-6 sm:p-10 lg:p-16 bg-[#06080e]/40">
-          <div className="max-w-xl mx-auto w-full flex flex-col gap-6">
-            
-            {/* Pricing Section */}
-            <div className="flex flex-col gap-2.5">
-              <h2 className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Pricing & Channels</h2>
-              <div className="grid grid-cols-2 gap-3.5">
-                
-                {/* Telegram Card */}
-                <div className="bg-[#0e111d]/60 border border-slate-900 rounded-xl p-3.5 flex flex-col justify-between h-20 hover:border-violet-500/20 hover:bg-[#111424]/60 transition-all group">
-                  <div className="flex items-center gap-1.5 text-xs text-slate-200">
-                    <Send className="h-3.5 w-3.5 text-sky-400 group-hover:scale-110 transition-transform" />
-                    <span className="font-semibold">Telegram Bot</span>
+        {/* ── RIGHT: Pricing + Steps + CTA ── */}
+        <section className="flex-1 lg:max-w-sm xl:max-w-md flex flex-col justify-center px-8 py-10 lg:px-10 lg:py-12 bg-slate-950/30">
+          <div className="flex flex-col gap-5">
+
+            {/* Pricing */}
+            <div className="flex flex-col gap-2">
+              <span className="text-[10px] font-semibold text-slate-500 uppercase tracking-widest">Plans</span>
+              <div className="grid grid-cols-2 gap-2">
+                <div className="bg-slate-900/60 border border-slate-800 rounded-xl p-3.5 flex flex-col gap-3 hover:border-sky-500/30 transition-colors group">
+                  <div className="flex items-center gap-1.5">
+                    <Send className="h-3.5 w-3.5 text-sky-400" />
+                    <span className="text-xs font-semibold text-white">Telegram</span>
                   </div>
-                  <div className="flex items-baseline gap-1 mt-2">
-                    <span className="text-lg font-bold text-white">$5</span>
-                    <span className="text-[9px] text-slate-500">/ year</span>
+                  <div className="flex items-baseline gap-1">
+                    <span className="text-2xl font-black text-white">$5</span>
+                    <span className="text-[9px] text-slate-500">/year</span>
                   </div>
                 </div>
-
-                {/* WhatsApp Card */}
-                <div className="bg-[#0e111d]/30 border border-slate-900/40 rounded-xl p-3.5 flex flex-col justify-between h-20 opacity-90 hover:border-emerald-500/20 hover:bg-[#111424]/30 transition-all group">
-                  <div className="flex items-center justify-between text-xs text-slate-350">
+                <div className="bg-slate-900/30 border border-slate-800/50 rounded-xl p-3.5 flex flex-col gap-3 opacity-70">
+                  <div className="flex items-center gap-1.5 justify-between">
                     <div className="flex items-center gap-1.5">
-                      <MessageSquare className="h-3.5 w-3.5 text-emerald-400 group-hover:scale-110 transition-transform" />
-                      <span className="font-semibold">WhatsApp</span>
+                      <MessageSquare className="h-3.5 w-3.5 text-emerald-400" />
+                      <span className="text-xs font-semibold text-slate-300">WhatsApp</span>
                     </div>
-                    <span className="text-[8px] bg-emerald-950/40 text-emerald-500 border border-emerald-900/20 px-1.5 py-0.2 rounded font-bold uppercase tracking-wider">Soon</span>
+                    <span className="text-[8px] bg-emerald-950/60 text-emerald-500 border border-emerald-900/30 px-1.5 py-0.5 rounded font-bold uppercase tracking-wide">Soon</span>
                   </div>
-                  <div className="flex items-baseline gap-1 mt-2">
-                    <span className="text-lg font-bold text-slate-400">$15</span>
-                    <span className="text-[9px] text-slate-650">/ year</span>
+                  <div className="flex items-baseline gap-1">
+                    <span className="text-2xl font-black text-slate-400">$15</span>
+                    <span className="text-[9px] text-slate-600">/year</span>
                   </div>
                 </div>
-
               </div>
             </div>
 
-            <hr className="border-slate-900" />
+            <div className="h-px bg-slate-900" />
 
-            {/* Execution Steps (Timeline) */}
-            <div className="flex flex-col gap-3">
-              <h2 className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Execution Steps</h2>
-              <div className="flex flex-col gap-3.5 relative pl-2">
-                
-                {/* Dotted vertical connector line */}
-                <div className="absolute left-[13px] top-2.5 bottom-2.5 w-[1px] bg-gradient-to-b from-violet-600/40 via-pink-500/20 to-transparent" />
-
+            {/* Steps */}
+            <div className="flex flex-col gap-2">
+              <span className="text-[10px] font-semibold text-slate-500 uppercase tracking-widest">How It Works</span>
+              <div className="flex flex-col gap-2.5">
                 {[
-                  { step: '1', title: 'Google OAuth Sign In', desc: 'Secure login via Google. Ready in under 15 seconds.' },
-                  { step: '2', title: 'Register Bot Link', desc: 'Add our bot to your Telegram Chat ID instantly.' },
-                  { step: '3', title: 'Set & Receive Alerts', desc: 'Schedule alerts with automatic timezone conversion.' }
-                ].map(item => (
-                  <div key={item.step} className="flex gap-4.5 items-start relative z-10">
-                    <div className="h-4.5 w-4.5 rounded-full bg-slate-950 border border-violet-500/40 flex items-center justify-center text-[9px] font-bold text-violet-400 shrink-0 shadow-md mt-0.5">
-                      {item.step}
+                  { n: '1', title: 'Sign in with Google', desc: 'One click OAuth — no passwords.' },
+                  { n: '2', title: 'Link Telegram Bot', desc: 'Copy your Chat ID in 10 seconds.' },
+                  { n: '3', title: 'Set Reminders', desc: 'Pick time, we handle timezone.' },
+                ].map(s => (
+                  <div key={s.n} className="flex items-start gap-3">
+                    <div className="h-5 w-5 rounded-full bg-violet-600/15 border border-violet-500/30 flex items-center justify-center text-[9px] font-bold text-violet-400 shrink-0 mt-0.5">
+                      {s.n}
                     </div>
                     <div>
-                      <h4 className="text-xs font-bold text-white leading-none">{item.title}</h4>
-                      <p className="text-[10px] text-slate-400 mt-1.5 leading-normal">{item.desc}</p>
+                      <p className="text-xs font-semibold text-white">{s.title}</p>
+                      <p className="text-[10px] text-slate-500 mt-0.5">{s.desc}</p>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
 
-            <hr className="border-slate-900" />
+            <div className="h-px bg-slate-900" />
 
-            {/* Contact Support */}
-            <div className="flex flex-col gap-2.5">
-              <h2 className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Contact Support</h2>
-              <form onSubmit={handleContactSubmit} className="flex flex-col gap-2">
+            {/* CTA */}
+            <button
+              onClick={handleCta}
+              className="w-full py-3 rounded-xl text-sm font-bold bg-gradient-to-r from-violet-600 to-indigo-600 text-white hover:from-violet-500 hover:to-indigo-500 transition-all flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-violet-950/40"
+            >
+              <Zap className="h-4 w-4" />
+              <span>{user ? 'Go to Dashboard' : 'Start Free Trial'}</span>
+              <ArrowRight className="h-4 w-4" />
+            </button>
+            <p className="text-center text-[10px] text-slate-600">No credit card · 30-day free trial</p>
+
+            <div className="h-px bg-slate-900" />
+
+            {/* Contact */}
+            <div className="flex flex-col gap-2">
+              <span className="text-[10px] font-semibold text-slate-500 uppercase tracking-widest">Contact Support</span>
+              <form onSubmit={handleContactSubmit} className="flex flex-col gap-1.5">
                 <input
                   type="email"
                   required
-                  placeholder="Email address"
+                  placeholder="Email"
                   value={contactEmail}
-                  onChange={(e) => setContactEmail(e.target.value)}
-                  className="w-full text-xs px-3 py-2 bg-[#05060b] border border-slate-900 rounded-lg text-white placeholder-slate-600 focus:outline-none focus:border-slate-800 transition-colors"
+                  onChange={e => setContactEmail(e.target.value)}
+                  className="w-full text-xs px-3 py-2 bg-slate-950 border border-slate-800 rounded-lg text-white placeholder-slate-600 focus:outline-none focus:border-slate-700"
                 />
                 <textarea
                   required
-                  placeholder="Describe your question..."
+                  placeholder="Your question..."
                   rows={2}
                   value={contactMessage}
-                  onChange={(e) => setContactMessage(e.target.value)}
-                  className="w-full text-xs px-3 py-2 bg-[#05060b] border border-slate-900 rounded-lg text-white placeholder-slate-600 focus:outline-none focus:border-slate-800 transition-colors resize-none"
+                  onChange={e => setContactMessage(e.target.value)}
+                  className="w-full text-xs px-3 py-2 bg-slate-950 border border-slate-800 rounded-lg text-white placeholder-slate-600 focus:outline-none focus:border-slate-700 resize-none"
                 />
                 <button
                   type="submit"
                   disabled={contactStatus === 'sending'}
-                  className="w-full py-2 bg-slate-900 hover:bg-slate-850 border border-slate-850 hover:border-slate-800 rounded-lg text-xs font-bold text-slate-200 transition-all cursor-pointer flex items-center justify-center gap-1.5"
+                  className="w-full py-2 bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-lg text-xs font-semibold text-slate-200 transition-all cursor-pointer flex items-center justify-center gap-1.5"
                 >
                   {contactStatus === 'sending' ? (
-                    <>
-                      <Loader2 className="h-3 w-3 animate-spin" />
-                      <span>Submitting...</span>
-                    </>
+                    <><Loader2 className="h-3 w-3 animate-spin" /><span>Sending...</span></>
                   ) : contactStatus === 'sent' ? (
-                    <span className="flex items-center gap-1.5 text-emerald-450"><Check className="h-3.5 w-3.5" /> Ticket Submitted!</span>
-                  ) : (
-                    <span>Submit Ticket</span>
-                  )}
+                    <span className="flex items-center gap-1.5 text-emerald-400"><Check className="h-3.5 w-3.5" /> Sent!</span>
+                  ) : 'Send Message'}
                 </button>
               </form>
-            </div>
-
-            <hr className="border-slate-900" />
-
-            {/* Full-width Google Login button */}
-            <div className="flex flex-col gap-2">
-              <button
-                onClick={handleCta}
-                className="w-full py-3 px-4 rounded-xl text-xs font-bold bg-gradient-to-r from-violet-600 to-indigo-650 text-white hover:from-violet-550 hover:to-indigo-600 transition-all duration-200 flex items-center justify-center gap-1.5 cursor-pointer shadow-lg"
-              >
-                <Zap className="h-3.5 w-3.5" />
-                <span>Google OAuth Login</span>
-                <ArrowRight className="h-3.5 w-3.5" />
-              </button>
             </div>
 
           </div>
