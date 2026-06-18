@@ -210,7 +210,7 @@ export default function Home() {
               <div className="flex flex-col gap-3.5 pl-1">
                 {[
                   { n: '1', title: 'Sign in with Google', desc: 'Secure passwordless login using your Google account. Ready instantly.' },
-                  { n: '2', title: 'Link Telegram Bot', desc: 'Add our bot to your Telegram and type /start to get your Chat ID.' },
+                  { n: '2', title: 'Link Telegram Bot', desc: 'Click to open our bot, hit start, and your account links automatically.' },
                   { n: '3', title: 'Set Reminders', desc: 'Pick your preferred date/time; we translate and schedule alerts perfectly.' },
                 ].map(s => (
                   <div key={s.n} className="flex items-start gap-4">

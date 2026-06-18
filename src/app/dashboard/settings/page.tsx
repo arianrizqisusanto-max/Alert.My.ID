@@ -67,7 +67,8 @@ export default function ChannelSettings() {
   // Links real Telegram Bot
   const getTelegramBotLink = () => {
     if (!user) return '#'
-    return `https://t.me/${botName}?start=${user.id}`
+    const targetBot = (user as any).telegram_bot_name || process.env.NEXT_PUBLIC_TELEGRAM_BOT_NAME || 'AlertMyIdBot'
+    return `https://t.me/${targetBot}?start=${user.id}`
   }
 
   // Simulated link for Mock Mode

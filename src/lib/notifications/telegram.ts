@@ -1,16 +1,16 @@
-export async function sendTelegramMessage(chatId: string, text: string) {
+export async function sendTelegramMessage(chatId: string, text: string, botToken?: string) {
   const isMock = process.env.NEXT_PUBLIC_MOCK_MODE === 'true'
-  const botToken = process.env.TELEGRAM_BOT_TOKEN
+  const finalToken = botToken || process.env.TELEGRAM_BOT_TOKEN
 
   console.log(`[Telegram Dispatch] To ChatId: ${chatId}, Msg: ${text}`)
 
-  if (isMock || !botToken || botToken.includes('mock')) {
+  if (isMock || !finalToken || finalToken.includes('mock')) {
     console.log(`[MOCK TELEGRAM SENT] ChatId: ${chatId}\nMessage: ${text}`)
     return { success: true, id: `mock-tg-${Date.now()}` }
   }
 
   try {
-    const res = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+    const res = await fetch(`https://api.telegram.org/bot${finalToken}/sendMessage`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

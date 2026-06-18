@@ -70,9 +70,12 @@ export class ReminderScheduler {
     }
 
     try {
-      // 1. Fetch user data (credentials & sync statuses) from D1
+      // 1. Fetch user data along with assigned bot token from D1
       const user = await db.prepare(
-        'SELECT telegram_chat_id, whatsapp_number FROM users WHERE id = ?'
+        'SELECT u.telegram_chat_id, u.whatsapp_number, b.bot_token ' +
+        'FROM users u ' +
+        'LEFT JOIN telegram_bots b ON u.telegram_bot_id = b.id ' +
+        'WHERE u.id = ?'
       ).bind(reminder.user_id).first()
 
       if (!user) {
@@ -102,7 +105,7 @@ export class ReminderScheduler {
         if (channel === 'telegram') {
           if (user.telegram_chat_id) {
             const text = `🔔 *Reminder Alert: ${reminder.title}*\n\n${reminder.message || 'No additional details.'}\n\n_Scheduled: ${reminder.reminder_date} ${reminder.reminder_time} (${reminder.timezone})_`
-            const tgRes = await this.sendTelegram(user.telegram_chat_id, text)
+            const tgRes = await this.sendTelegram(user.telegram_chat_id, text, user.bot_token)
             if (!tgRes.success) {
               deliveryStatus = 'failed'
               errMsg = tgRes.error || 'Telegram delivery failed'
@@ -157,8 +160,8 @@ export class ReminderScheduler {
   }
 
   // Helper to send Telegram message
-  async sendTelegram(chatId: string, text: string): Promise<{ success: boolean; error?: string }> {
-    const token = this.env.TELEGRAM_BOT_TOKEN
+  async sendTelegram(chatId: string, text: string, botToken?: string | null): Promise<{ success: boolean; error?: string }> {
+    const token = botToken || this.env.TELEGRAM_BOT_TOKEN
     if (!token) return { success: false, error: 'TELEGRAM_BOT_TOKEN not configured' }
 
     try {
