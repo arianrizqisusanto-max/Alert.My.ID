@@ -51,10 +51,10 @@ export default function Home() {
   const isTelegram = simChannel === 'telegram'
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#040508] text-slate-300 relative overflow-hidden">
+    <div className="min-h-screen flex flex-col bg-[#040508] text-slate-300 relative">
       
       {/* Ambient glows */}
-      <div className="absolute inset-0 pointer-events-none">
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-violet-600/10 blur-[150px] rounded-full animate-pulse" />
         <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-indigo-600/8 blur-[120px] rounded-full" />
       </div>
