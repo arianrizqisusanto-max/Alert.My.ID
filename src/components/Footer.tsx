@@ -6,7 +6,7 @@ export default function Footer() {
 
   return (
     <footer className="border-t border-slate-900 bg-slate-950/80 w-full mt-auto py-4">
-      <div className="max-w-4xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-[10px] text-slate-500">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-2 text-[10px] text-slate-500">
         <div>
           &copy; {currentYear} Alert.my.id. All rights reserved.
         </div>
