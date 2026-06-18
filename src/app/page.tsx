@@ -6,7 +6,7 @@ import Footer from '@/components/Footer'
 import { useAuth } from '@/lib/auth-context'
 import { 
   Send, MessageSquare, ArrowRight, Zap, 
-  Loader2, Check, Shield, Clock, Globe
+  Loader2, Check, Shield, Clock, Globe, Calendar
 } from 'lucide-react'
 
 export default function Home() {
@@ -79,13 +79,13 @@ export default function Home() {
                 {' '}& WhatsApp
               </h1>
               <p className="text-base sm:text-lg text-slate-400 leading-relaxed max-w-xl">
-                Never miss a deadline. Get instant alerts straight to your favorite chat apps — completely automatic, timezone-aware, and built on serverless edge.
+                Never miss a deadline. Sync your Google Calendar and get instant alerts straight to your favorite chat apps — completely automatic, timezone-aware, and serverless.
               </p>
               <div className="flex flex-wrap gap-2.5 mt-2">
                 {[
                   { icon: <Shield className="h-3.5 w-3.5" />, label: 'Secure OAuth' },
                   { icon: <Clock className="h-3.5 w-3.5" />, label: 'Timezone Aware' },
-                  { icon: <Globe className="h-3.5 w-3.5" />, label: 'Serverless Edge' },
+                  { icon: <Calendar className="h-3.5 w-3.5" />, label: 'Google Calendar Sync' },
                 ].map((t, i) => (
                   <span key={i} className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-xl bg-slate-900/80 border border-slate-800 text-slate-300">
                     {t.icon}{t.label}
@@ -211,7 +211,7 @@ export default function Home() {
                 {[
                   { n: '1', title: 'Sign in with Google', desc: 'Secure passwordless login using your Google account. Ready instantly.' },
                   { n: '2', title: 'Link Telegram Bot', desc: 'Click to open our bot, hit start, and your account links automatically.' },
-                  { n: '3', title: 'Set Reminders', desc: 'Pick your preferred date/time; we translate and schedule alerts perfectly.' },
+                  { n: '3', title: 'Sync Google Calendar', desc: 'Alerts sync automatically from your Google Calendar events, or set manual tasks.' },
                 ].map(s => (
                   <div key={s.n} className="flex items-start gap-4">
                     <div className="h-6 w-6 rounded-full bg-violet-600/15 border border-violet-500/30 flex items-center justify-center text-xs font-bold text-violet-400 shrink-0 mt-0.5">
