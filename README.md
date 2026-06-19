@@ -36,4 +36,8 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
 ## Deployment Info
-Deployed on Cloudflare Pages. Compatibility flags: `nodejs_compat` enabled.
+This project is set up to automatically deploy to Cloudflare on push to the `main` branch via GitHub Actions.
+
+To configure deployment:
+1. Generate a Cloudflare API token with Workers, D1, and Zone edit permissions.
+2. Add it as a secret named `CLOUDFLARE_API_TOKEN` under your GitHub Repository Settings -> Secrets and variables -> Actions.
