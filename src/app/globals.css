@@ -33,6 +33,11 @@
   100% { transform: translateY(-20px); opacity: 0; }
 }
 
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 /* Global styles */
 :root {
   color-scheme: dark;
@@ -105,6 +110,7 @@ body {
 /* ──────────────────────── Animations ──────────────────────── */
 .animate-float { animation: float 5s ease-in-out infinite; }
 .animate-notification { animation: slide-down-notification 5s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.animate-fade-in { animation: fadeIn 0.4s ease-out forwards; }
 
 /* Divider gradient */
 .divider-gradient {
