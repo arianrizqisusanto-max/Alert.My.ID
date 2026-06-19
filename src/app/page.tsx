@@ -364,64 +364,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ─────────────────── CHANNELS ─────────────────── */}
-      <section className="relative z-10 px-5 py-8 sm:py-10">
-        <div className="max-w-4xl mx-auto text-center">
-          <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Notification Channels</p>
-          <h2 className="text-3xl sm:text-4xl font-black text-white mb-6">
-            Where Your Alerts Land
-          </h2>
-
-          <div className="grid sm:grid-cols-2 gap-5 max-w-2xl mx-auto">
-
-            {/* Telegram — LIVE */}
-            <div className="relative p-6 bg-sky-950/20 border border-sky-700/30 rounded-3xl text-left hover:border-sky-600/50 transition-all shadow-lg shadow-sky-950/10">
-              <div className="absolute top-4 right-4">
-                <span className="px-2.5 py-0.5 bg-sky-500/15 border border-sky-500/25 rounded-full text-sky-400 text-[10px] font-black uppercase tracking-wide">Live</span>
-              </div>
-              <div className="h-12 w-12 rounded-2xl bg-sky-500/15 border border-sky-500/20 flex items-center justify-center mb-4">
-                <Send className="h-6 w-6 text-sky-400" />
-              </div>
-              <h3 className="text-white font-black text-lg mb-2">Telegram</h3>
-              <p className="text-slate-400 text-sm leading-relaxed mb-4">
-                Connect your Telegram account and receive alerts instantly. Works on all devices — phone, tablet, desktop.
-              </p>
-              <ul className="flex flex-col gap-2">
-                {['Free to use', 'Instant delivery', 'Rich message format', 'Multi-bot architecture'].map(f => (
-                  <li key={f} className="flex items-center gap-2 text-xs text-slate-300">
-                    <Check className="h-3.5 w-3.5 text-sky-400 shrink-0" />
-                    {f}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* WhatsApp — Coming Soon */}
-            <div className="relative p-6 bg-slate-900/30 border border-slate-800/40 rounded-3xl text-left opacity-70 cursor-not-allowed">
-              <div className="absolute top-4 right-4">
-                <span className="px-2.5 py-0.5 bg-emerald-950/60 border border-emerald-900/30 rounded-full text-emerald-500 text-[10px] font-black uppercase tracking-wide">Coming Soon</span>
-              </div>
-              <div className="h-12 w-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/15 flex items-center justify-center mb-4">
-                <MessageSquare className="h-6 w-6 text-emerald-400" />
-              </div>
-              <h3 className="text-white font-black text-lg mb-2">WhatsApp</h3>
-              <p className="text-slate-400 text-sm leading-relaxed mb-4">
-                WhatsApp integration is on the way. Get reminders delivered directly to your WhatsApp — where everyone already is.
-              </p>
-              <ul className="flex flex-col gap-2">
-                {['No extra app needed', 'Business API powered', 'Group notifications', 'Template messages'].map(f => (
-                  <li key={f} className="flex items-center gap-2 text-xs text-slate-500">
-                    <Clock className="h-3.5 w-3.5 text-emerald-700 shrink-0" />
-                    {f}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
       {/* ─────────────────── PRICING ─────────────────── */}
       <section className="relative z-10 px-5 py-8 sm:py-10">
         <div className="max-w-4xl mx-auto text-center">
