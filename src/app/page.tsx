@@ -61,14 +61,14 @@ export default function Home() {
 
       <Navbar />
 
-      {/* ─────────────────── HERO SECTION ─────────────────── */}
+      {/* ─────────────────── HERO SECTION (WITH COMBINED USE CASES) ─────────────────── */}
       <section className="relative z-10 flex flex-col items-center text-center px-5 pt-4 pb-8 sm:pt-6 sm:pb-10">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-300 text-xs font-bold uppercase tracking-widest mb-5">
           <span className="h-1.5 w-1.5 rounded-full bg-violet-400 animate-pulse" />
           30-Day Free Trial · No Credit Card Required
         </div>
 
-        <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-white leading-[1.05] tracking-tight max-w-4xl mb-4">
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.1] tracking-tight max-w-4xl mb-4">
           Your{' '}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-pink-400 to-sky-400">
             Personal Alert System
@@ -76,13 +76,13 @@ export default function Home() {
           {' '}—{' '}Always On Time
         </h1>
 
-        <p className="text-lg sm:text-xl text-slate-400 max-w-2xl leading-relaxed mb-3">
+        <p className="text-base sm:text-lg text-slate-400 max-w-2xl leading-relaxed mb-4">
           From a secretary reminding her boss, to a parent remembering school pickup —
           <span className="text-white font-semibold"> Alert.my.id</span> delivers smart reminders
           straight to your <span className="text-sky-400 font-semibold">Telegram</span>, automatically.
         </p>
 
-        <div className="flex flex-wrap justify-center gap-3 mb-6 text-sm text-slate-400">
+        <div className="flex flex-wrap justify-center gap-3 mb-6 text-xs text-slate-400">
           <span className="flex items-center gap-1.5"><Shield className="h-3.5 w-3.5 text-violet-400" /> Secure Google Login</span>
           <span className="text-slate-700">·</span>
           <span className="flex items-center gap-1.5"><Clock className="h-3.5 w-3.5 text-violet-400" /> Timezone Aware</span>
@@ -92,46 +92,33 @@ export default function Home() {
           <span className="flex items-center gap-1.5"><Globe className="h-3.5 w-3.5 text-violet-400" /> Serverless & Always Up</span>
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-3 justify-center">
+        <div className="flex flex-col sm:flex-row gap-3 justify-center mb-10">
           <button
             onClick={handleCta}
-            className="flex items-center gap-2 px-8 py-4 rounded-2xl bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white font-extrabold text-base transition-all shadow-xl shadow-violet-950/50 hover:shadow-violet-950/70 active:scale-[0.98] cursor-pointer"
+            className="flex items-center gap-2 px-7 py-3.5 rounded-2xl bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white font-extrabold text-sm transition-all shadow-xl shadow-violet-950/50 hover:shadow-violet-950/70 active:scale-[0.98] cursor-pointer"
           >
-            <Zap className="h-4.5 w-4.5" />
+            <Zap className="h-4 w-4" />
             {user ? 'Go to Dashboard' : 'Start Free Trial'}
-            <ArrowRight className="h-4.5 w-4.5" />
+            <ArrowRight className="h-4 w-4" />
           </button>
           <button
             onClick={handleCta}
-            className="flex items-center gap-2 px-8 py-4 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-slate-700 text-white font-bold text-base transition-all cursor-pointer"
+            className="flex items-center gap-2 px-7 py-3.5 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-slate-700 text-white font-bold text-sm transition-all cursor-pointer"
           >
             See How It Works
-            <ChevronRight className="h-4 w-4" />
+            <ChevronRight className="h-3.5 w-3.5" />
           </button>
         </div>
-      </section>
 
-      {/* ─────────────────── USE CASES ─────────────────── */}
-      <section className="relative z-10 px-5 py-8 sm:py-10">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-6">
-            <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Who Uses Alert.my.id</p>
-            <h2 className="text-3xl sm:text-4xl font-black text-white">
-              Powerful Reminders for{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-pink-400">Everyone</span>
-            </h2>
-            <p className="text-slate-400 mt-3 max-w-xl mx-auto">
-              Whether you're managing a team or your family schedule — we keep you ahead.
-            </p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {/* Combined Use Case Cards */}
+        <div className="max-w-5xl w-full mx-auto mt-2">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 text-left">
             {useCases.map((u, i) => (
-              <div key={i} className="p-5 bg-slate-900/40 border border-slate-800/60 rounded-2xl hover:border-violet-500/30 hover:bg-slate-900/60 transition-all group cursor-default">
-                <div className="h-10 w-10 rounded-xl bg-violet-600/15 border border-violet-500/20 flex items-center justify-center text-violet-400 mb-4 group-hover:scale-110 transition-transform">
+              <div key={i} className="p-4 bg-slate-900/40 border border-slate-800/60 rounded-2xl hover:border-violet-500/30 hover:bg-slate-900/60 transition-all group cursor-default">
+                <div className="h-9 w-9 rounded-xl bg-violet-600/15 border border-violet-500/20 flex items-center justify-center text-violet-400 mb-3.5 group-hover:scale-110 transition-transform">
                   {u.icon}
                 </div>
-                <p className="text-white font-bold text-sm mb-1.5">{u.who}</p>
+                <p className="text-white font-bold text-sm mb-1">{u.who}</p>
                 <p className="text-slate-400 text-xs leading-relaxed">{u.use}</p>
               </div>
             ))}
