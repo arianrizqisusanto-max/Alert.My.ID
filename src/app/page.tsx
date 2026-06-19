@@ -50,7 +50,7 @@ export default function Home() {
   ]
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#030408] text-slate-300 relative overflow-x-hidden">
+    <div className="min-h-screen flex flex-col bg-[#030408] text-slate-300 relative">
 
       {/* Background glows */}
       <div className="fixed inset-0 pointer-events-none z-0">
@@ -62,13 +62,13 @@ export default function Home() {
       <Navbar />
 
       {/* ─────────────────── HERO SECTION ─────────────────── */}
-      <section className="relative z-10 flex flex-col items-center text-center px-5 pt-20 pb-16 sm:pt-28 sm:pb-20">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-300 text-xs font-bold uppercase tracking-widest mb-8">
+      <section className="relative z-10 flex flex-col items-center text-center px-5 pt-10 pb-8 sm:pt-14 sm:pb-10">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-300 text-xs font-bold uppercase tracking-widest mb-5">
           <span className="h-1.5 w-1.5 rounded-full bg-violet-400 animate-pulse" />
           30-Day Free Trial · No Credit Card Required
         </div>
 
-        <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-white leading-[1.05] tracking-tight max-w-4xl mb-6">
+        <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-white leading-[1.05] tracking-tight max-w-4xl mb-4">
           Your{' '}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-pink-400 to-sky-400">
             Personal Alert System
@@ -76,13 +76,13 @@ export default function Home() {
           {' '}—{' '}Always On Time
         </h1>
 
-        <p className="text-lg sm:text-xl text-slate-400 max-w-2xl leading-relaxed mb-4">
+        <p className="text-lg sm:text-xl text-slate-400 max-w-2xl leading-relaxed mb-3">
           From a secretary reminding her boss, to a parent remembering school pickup —
           <span className="text-white font-semibold"> Alert.my.id</span> delivers smart reminders
           straight to your <span className="text-sky-400 font-semibold">Telegram</span>, automatically.
         </p>
 
-        <div className="flex flex-wrap justify-center gap-3 mb-10 text-sm text-slate-400">
+        <div className="flex flex-wrap justify-center gap-3 mb-6 text-sm text-slate-400">
           <span className="flex items-center gap-1.5"><Shield className="h-3.5 w-3.5 text-violet-400" /> Secure Google Login</span>
           <span className="text-slate-700">·</span>
           <span className="flex items-center gap-1.5"><Clock className="h-3.5 w-3.5 text-violet-400" /> Timezone Aware</span>
@@ -112,11 +112,11 @@ export default function Home() {
       </section>
 
       {/* ─────────────────── GOOGLE CALENDAR SECTION (BLOWN UP) ─────────────────── */}
-      <section className="relative z-10 px-5 py-16 sm:py-20">
+      <section className="relative z-10 px-5 py-8 sm:py-10">
         <div className="max-w-6xl mx-auto">
 
           {/* Section label */}
-          <div className="flex justify-center mb-6">
+          <div className="flex justify-center mb-4">
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 text-xs font-bold uppercase tracking-widest">
               <Calendar className="h-3.5 w-3.5" />
               Star Feature
@@ -127,26 +127,26 @@ export default function Home() {
 
             {/* Left: copy */}
             <div>
-              <h2 className="text-4xl sm:text-5xl font-black text-white leading-tight mb-5">
+              <h2 className="text-4xl sm:text-5xl font-black text-white leading-tight mb-3">
                 Your Calendar,{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-sky-400">
                   Your Reminders
                 </span>
                 <br />— Automatically.
               </h2>
-              <p className="text-lg text-slate-400 leading-relaxed mb-8">
+              <p className="text-lg text-slate-400 leading-relaxed mb-5">
                 Connect your <strong className="text-white">Google Calendar</strong> once and every event becomes a Telegram alert.
                 No manual setup. No missed meetings. Just instant, automatic notifications at the right time.
               </p>
 
-              <div className="flex flex-col gap-4 mb-8">
+              <div className="flex flex-col gap-2.5 mb-5">
                 {[
                   { icon: <Calendar className="h-5 w-5 text-emerald-400" />, title: 'Sync Any Calendar Event', desc: 'Meetings, birthdays, deadlines — all pulled from Google Calendar automatically.' },
                   { icon: <Clock className="h-5 w-5 text-sky-400" />, title: 'Custom Alert Timing', desc: '5 mins before, 1 hour before, or exactly on time — your choice.' },
                   { icon: <Repeat className="h-5 w-5 text-violet-400" />, title: 'Recurring Events Handled', desc: 'Weekly standups, monthly reviews — recurrences automatically tracked.' },
                   { icon: <Globe className="h-5 w-5 text-pink-400" />, title: 'Timezone Intelligent', desc: 'Works across timezones. Your team in Tokyo gets the right alert at the right time.' },
                 ].map((f, i) => (
-                  <div key={i} className="flex gap-4 items-start p-4 bg-slate-900/40 border border-slate-800/60 rounded-2xl hover:border-slate-700/60 transition-all group">
+                  <div key={i} className="flex gap-4 items-start p-3 bg-slate-900/40 border border-slate-800/60 rounded-2xl hover:border-slate-700/60 transition-all group">
                     <div className="mt-0.5 p-2 bg-slate-800/80 rounded-xl group-hover:scale-110 transition-transform">
                       {f.icon}
                     </div>
@@ -248,10 +248,10 @@ export default function Home() {
       </section>
 
       {/* ─────────────────── USE CASES ─────────────────── */}
-      <section className="relative z-10 px-5 py-14 sm:py-18">
+      <section className="relative z-10 px-5 py-8 sm:py-10">
         <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-10">
-            <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-3">Who Uses Alert.my.id</p>
+          <div className="text-center mb-6">
+            <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Who Uses Alert.my.id</p>
             <h2 className="text-3xl sm:text-4xl font-black text-white">
               Powerful Reminders for{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-pink-400">Everyone</span>
@@ -276,18 +276,18 @@ export default function Home() {
       </section>
 
       {/* ─────────────────── LIVE SIMULATOR ─────────────────── */}
-      <section className="relative z-10 px-5 py-14 sm:py-18">
+      <section className="relative z-10 px-5 py-8 sm:py-10">
         <div className="max-w-5xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
 
             {/* Left: copy */}
             <div>
-              <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-3">Try It Now</p>
-              <h2 className="text-3xl sm:text-4xl font-black text-white leading-tight mb-4">
+              <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Try It Now</p>
+              <h2 className="text-3xl sm:text-4xl font-black text-white leading-tight mb-3">
                 See It in Action —{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-violet-400">Live</span>
               </h2>
-              <p className="text-slate-400 leading-relaxed mb-8">
+              <p className="text-slate-400 leading-relaxed mb-5">
                 Type any reminder below and see exactly how your Telegram message will look. Instant, clean, and straight to the point.
               </p>
 
@@ -364,10 +364,10 @@ export default function Home() {
       </section>
 
       {/* ─────────────────── CHANNELS ─────────────────── */}
-      <section className="relative z-10 px-5 py-14 sm:py-18">
+      <section className="relative z-10 px-5 py-8 sm:py-10">
         <div className="max-w-4xl mx-auto text-center">
-          <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-3">Notification Channels</p>
-          <h2 className="text-3xl sm:text-4xl font-black text-white mb-10">
+          <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Notification Channels</p>
+          <h2 className="text-3xl sm:text-4xl font-black text-white mb-6">
             Where Your Alerts Land
           </h2>
 
@@ -422,11 +422,11 @@ export default function Home() {
       </section>
 
       {/* ─────────────────── PRICING ─────────────────── */}
-      <section className="relative z-10 px-5 py-14 sm:py-18">
+      <section className="relative z-10 px-5 py-8 sm:py-10">
         <div className="max-w-4xl mx-auto text-center">
-          <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-3">Pricing</p>
-          <h2 className="text-3xl sm:text-4xl font-black text-white mb-3">Simple, Honest Pricing</h2>
-          <p className="text-slate-400 mb-10">Start free, upgrade when you love it.</p>
+          <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Pricing</p>
+          <h2 className="text-3xl sm:text-4xl font-black text-white mb-2">Simple, Honest Pricing</h2>
+          <p className="text-slate-400 mb-6">Start free, upgrade when you love it.</p>
 
           <div className="grid sm:grid-cols-2 gap-5 max-w-2xl mx-auto">
 
@@ -486,9 +486,9 @@ export default function Home() {
       </section>
 
       {/* ─────────────────── FINAL CTA ─────────────────── */}
-      <section className="relative z-10 px-5 py-16 sm:py-20">
+      <section className="relative z-10 px-5 py-8 sm:py-10">
         <div className="max-w-3xl mx-auto text-center">
-          <div className="relative p-10 sm:p-14 bg-gradient-to-b from-violet-950/30 to-slate-950/60 border border-violet-700/20 rounded-3xl overflow-hidden">
+          <div className="relative p-6 sm:p-8 bg-gradient-to-b from-violet-950/30 to-slate-950/60 border border-violet-700/20 rounded-3xl overflow-hidden">
             {/* Glow */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-80 h-40 bg-violet-600/15 blur-3xl" />
 
@@ -498,10 +498,10 @@ export default function Home() {
                   <BellRing className="h-8 w-8 text-white" />
                 </div>
               </div>
-              <h2 className="text-3xl sm:text-4xl font-black text-white mb-4">
+              <h2 className="text-3xl sm:text-4xl font-black text-white mb-3">
                 Never Miss Another Thing
               </h2>
-              <p className="text-slate-400 text-lg mb-8 max-w-xl mx-auto">
+              <p className="text-slate-400 text-lg mb-5 max-w-xl mx-auto">
                 Your personal alert system, running 24/7 — on Cloudflare's global network.
                 Set it once. Let it work forever.
               </p>
