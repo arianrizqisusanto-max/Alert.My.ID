@@ -380,10 +380,10 @@ export default function Home() {
                 <span className="text-white font-bold text-sm">Telegram Plan</span>
               </div>
               <div className="flex items-baseline gap-1.5 mb-1">
-                <span className="text-5xl font-black text-white">$5</span>
+                <span className="text-5xl font-black text-white">$15</span>
                 <span className="text-slate-500 text-sm font-bold">/ year</span>
               </div>
-              <p className="text-slate-500 text-xs mb-5">≈ $0.42/month · Billed annually</p>
+              <p className="text-slate-500 text-xs mb-5">≈ $1.25/month · Billed annually</p>
               <ul className="flex flex-col gap-2.5 mb-6">
                 {['Unlimited reminders', 'Google Calendar sync', 'Recurring alerts', 'All timezones', '30-day free trial'].map(f => (
                   <li key={f} className="flex items-center gap-2 text-sm text-slate-300">
@@ -408,7 +408,7 @@ export default function Home() {
                 <span className="text-slate-300 font-bold text-sm">WhatsApp Pro</span>
               </div>
               <div className="flex items-baseline gap-1.5 mb-1">
-                <span className="text-5xl font-black text-slate-500">$15</span>
+                <span className="text-5xl font-black text-slate-500">$29</span>
                 <span className="text-slate-600 text-sm font-bold">/ year</span>
               </div>
               <p className="text-slate-600 text-xs mb-5">Telegram + WhatsApp included</p>
