@@ -486,42 +486,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ─────────────────── FINAL CTA ─────────────────── */}
-      <section className="relative z-10 px-5 py-8 sm:py-10">
-        <div className="max-w-3xl mx-auto text-center">
-          <div className="relative p-6 sm:p-8 bg-gradient-to-b from-violet-950/30 to-slate-950/60 border border-violet-700/20 rounded-3xl overflow-hidden">
-            {/* Glow */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-80 h-40 bg-violet-600/15 blur-3xl" />
-
-            <div className="relative">
-              <div className="flex justify-center mb-5">
-                <div className="p-3 bg-gradient-to-br from-violet-600 to-pink-600 rounded-2xl shadow-xl shadow-violet-950/40">
-                  <BellRing className="h-8 w-8 text-white" />
-                </div>
-              </div>
-              <h2 className="text-3xl sm:text-4xl font-black text-white mb-3">
-                Never Miss Another Thing
-              </h2>
-              <p className="text-slate-400 text-lg mb-5 max-w-xl mx-auto">
-                Your personal alert system, running 24/7 — on Cloudflare's global network.
-                Set it once. Let it work forever.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                <button
-                  onClick={handleCta}
-                  className="flex items-center justify-center gap-2 px-8 py-4 rounded-2xl bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white font-extrabold text-base transition-all shadow-xl shadow-violet-950/50 cursor-pointer"
-                >
-                  <Star className="h-4.5 w-4.5" />
-                  {user ? 'Go to Dashboard' : 'Start Free — 30 Days'}
-                  <ArrowRight className="h-4.5 w-4.5" />
-                </button>
-              </div>
-              <p className="text-slate-600 text-xs mt-4">No credit card · No contracts · Cancel anytime</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <Footer />
     </div>
   )
