@@ -62,7 +62,7 @@ export default function Home() {
       <Navbar />
 
       {/* ─────────────────── HERO SECTION ─────────────────── */}
-      <section className="relative z-10 flex flex-col items-center text-center px-5 pt-10 pb-8 sm:pt-14 sm:pb-10">
+      <section className="relative z-10 flex flex-col items-center text-center px-5 pt-4 pb-8 sm:pt-6 sm:pb-10">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-300 text-xs font-bold uppercase tracking-widest mb-5">
           <span className="h-1.5 w-1.5 rounded-full bg-violet-400 animate-pulse" />
           30-Day Free Trial · No Credit Card Required
