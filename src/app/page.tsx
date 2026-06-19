@@ -111,6 +111,34 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ─────────────────── USE CASES ─────────────────── */}
+      <section className="relative z-10 px-5 py-8 sm:py-10">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-6">
+            <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Who Uses Alert.my.id</p>
+            <h2 className="text-3xl sm:text-4xl font-black text-white">
+              Powerful Reminders for{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-pink-400">Everyone</span>
+            </h2>
+            <p className="text-slate-400 mt-3 max-w-xl mx-auto">
+              Whether you're managing a team or your family schedule — we keep you ahead.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {useCases.map((u, i) => (
+              <div key={i} className="p-5 bg-slate-900/40 border border-slate-800/60 rounded-2xl hover:border-violet-500/30 hover:bg-slate-900/60 transition-all group cursor-default">
+                <div className="h-10 w-10 rounded-xl bg-violet-600/15 border border-violet-500/20 flex items-center justify-center text-violet-400 mb-4 group-hover:scale-110 transition-transform">
+                  {u.icon}
+                </div>
+                <p className="text-white font-bold text-sm mb-1.5">{u.who}</p>
+                <p className="text-slate-400 text-xs leading-relaxed">{u.use}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ─────────────────── GOOGLE CALENDAR SECTION (BLOWN UP) ─────────────────── */}
       <section className="relative z-10 px-5 py-8 sm:py-10">
         <div className="max-w-6xl mx-auto">
@@ -243,34 +271,6 @@ export default function Home() {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ─────────────────── USE CASES ─────────────────── */}
-      <section className="relative z-10 px-5 py-8 sm:py-10">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-6">
-            <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Who Uses Alert.my.id</p>
-            <h2 className="text-3xl sm:text-4xl font-black text-white">
-              Powerful Reminders for{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-pink-400">Everyone</span>
-            </h2>
-            <p className="text-slate-400 mt-3 max-w-xl mx-auto">
-              Whether you're managing a team or your family schedule — we keep you ahead.
-            </p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {useCases.map((u, i) => (
-              <div key={i} className="p-5 bg-slate-900/40 border border-slate-800/60 rounded-2xl hover:border-violet-500/30 hover:bg-slate-900/60 transition-all group cursor-default">
-                <div className="h-10 w-10 rounded-xl bg-violet-600/15 border border-violet-500/20 flex items-center justify-center text-violet-400 mb-4 group-hover:scale-110 transition-transform">
-                  {u.icon}
-                </div>
-                <p className="text-white font-bold text-sm mb-1.5">{u.who}</p>
-                <p className="text-slate-400 text-xs leading-relaxed">{u.use}</p>
-              </div>
-            ))}
           </div>
         </div>
       </section>
